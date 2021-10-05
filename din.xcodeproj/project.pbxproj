@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
 		B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6A270AD71E008555A7 /* dinApp.swift */; };
 		B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6C270AD71E008555A7 /* ContentView.swift */; };
 		B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EBFA6E270AD721008555A7 /* Assets.xcassets */; };
@@ -14,6 +15,16 @@
 		B8EBFA7C270AD722008555A7 /* dinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA7B270AD722008555A7 /* dinTests.swift */; };
 		B8EBFA86270AD722008555A7 /* dinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA85270AD722008555A7 /* dinUITests.swift */; };
 		B8EBFA88270AD722008555A7 /* dinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA87270AD722008555A7 /* dinUITestsLaunchTests.swift */; };
+		B8EBFA96270AD77E008555A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B8EBFA95270AD77E008555A7 /* Alamofire */; };
+		B8EBFAA6270ADACE008555A7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAA5270ADACE008555A7 /* Repository.swift */; };
+		B8EBFAAA270ADAFC008555A7 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAA9270ADAFC008555A7 /* RemoteDataSource.swift */; };
+		B8EBFAAC270ADB07008555A7 /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAAB270ADB07008555A7 /* LocaleDataSource.swift */; };
+		B8EBFAAE270ADB1E008555A7 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAAD270ADB1E008555A7 /* Injection.swift */; };
+		B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAB3270ADB3E008555A7 /* GlobalHelper.swift */; };
+		B8EBFABD270AE0E5008555A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8EBFABC270AE0E5008555A7 /* .swiftlint.yml */; };
+		B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EBFABE270AE265008555A7 /* Launch Screen.storyboard */; };
+		B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAC1270AE453008555A7 /* OnBoardingView.swift */; };
+		B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8EBFA67270AD71E008555A7 /* din.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = din.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EBFA6A270AD71E008555A7 /* dinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dinApp.swift; sourceTree = "<group>"; };
 		B8EBFA6C270AD71E008555A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +56,15 @@
 		B8EBFA81270AD722008555A7 /* dinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EBFA85270AD722008555A7 /* dinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dinUITests.swift; sourceTree = "<group>"; };
 		B8EBFA87270AD722008555A7 /* dinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8EBFAA5270ADACE008555A7 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		B8EBFAA9270ADAFC008555A7 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		B8EBFAAB270ADB07008555A7 /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
+		B8EBFAAD270ADB1E008555A7 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		B8EBFAB3270ADB3E008555A7 /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
+		B8EBFABC270AE0E5008555A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B8EBFABE270AE265008555A7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B8EBFAC1270AE453008555A7 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8EBFA96270AD77E008555A7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8552DCD270BF0A00044D49F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		B8EBFA5E270AD71E008555A7 = {
 			isa = PBXGroup;
 			children = (
+				B8EBFABC270AE0E5008555A7 /* .swiftlint.yml */,
 				B8EBFA69270AD71E008555A7 /* din */,
 				B8EBFA7A270AD722008555A7 /* dinTests */,
 				B8EBFA84270AD722008555A7 /* dinUITests */,
@@ -94,9 +124,10 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
-				B8EBFA6A270AD71E008555A7 /* dinApp.swift */,
-				B8EBFA6C270AD71E008555A7 /* ContentView.swift */,
-				B8EBFA6E270AD721008555A7 /* Assets.xcassets */,
+				B8EBFA97270AD785008555A7 /* App */,
+				B8EBFA9A270AD7E7008555A7 /* Core */,
+				B8EBFA99270AD7E3008555A7 /* Module */,
+				B8EBFA98270AD78C008555A7 /* Supporting Files */,
 				B8EBFA70270AD721008555A7 /* Preview Content */,
 			);
 			path = din;
@@ -127,6 +158,215 @@
 			path = dinUITests;
 			sourceTree = "<group>";
 		};
+		B8EBFA97270AD785008555A7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFA6A270AD71E008555A7 /* dinApp.swift */,
+				B8EBFA6C270AD71E008555A7 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8EBFA98270AD78C008555A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFA6E270AD721008555A7 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8EBFA99270AD7E3008555A7 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAB6270ADBB2008555A7 /* Root */,
+				B8EBFAB5270ADB96008555A7 /* Main */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		B8EBFA9A270AD7E7008555A7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B8552DCD270BF0A00044D49F /* Authentication */,
+				B8EBFA9F270AD808008555A7 /* Injection */,
+				B8EBFA9E270AD804008555A7 /* Data */,
+				B8EBFA9D270AD7FF008555A7 /* Domain */,
+				B8EBFA9C270AD7F9008555A7 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B8EBFA9B270AD7ED008555A7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAB1270ADB29008555A7 /* View */,
+				B8EBFAB0270ADB25008555A7 /* Presenter */,
+				B8EBFAAF270ADB22008555A7 /* Router */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B8EBFA9C270AD7F9008555A7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAB2270ADB2E008555A7 /* Helpers */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B8EBFA9D270AD7FF008555A7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAA1270ADA50008555A7 /* UseCase */,
+				B8EBFAA0270ADA49008555A7 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B8EBFA9E270AD804008555A7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAA4270ADAA5008555A7 /* Repository */,
+				B8EBFAA3270ADAA2008555A7 /* Remote */,
+				B8EBFAA2270ADA9E008555A7 /* Locale */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B8EBFA9F270AD808008555A7 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAAD270ADB1E008555A7 /* Injection.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		B8EBFAA0270ADA49008555A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B8EBFAA1270ADA50008555A7 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B8EBFAA2270ADA9E008555A7 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAA8270ADAD6008555A7 /* Entity */,
+				B8EBFAAB270ADB07008555A7 /* LocaleDataSource.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		B8EBFAA3270ADAA2008555A7 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAA7270ADAD2008555A7 /* Response */,
+				B8EBFAA9270ADAFC008555A7 /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		B8EBFAA4270ADAA5008555A7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAA5270ADACE008555A7 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B8EBFAA7270ADAD2008555A7 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		B8EBFAA8270ADAD6008555A7 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B8EBFAAF270ADB22008555A7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B8EBFAB0270ADB25008555A7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B8EBFAB1270ADB29008555A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8552DCB270BEE4E0044D49F /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8EBFAB2270ADB2E008555A7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAB3270ADB3E008555A7 /* GlobalHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B8EBFAB5270ADB96008555A7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFA9B270AD7ED008555A7 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B8EBFAB6270ADBB2008555A7 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAC0270AE3FD008555A7 /* SplashScreen */,
+				B8EBFAB7270ADBBF008555A7 /* OnBoarding */,
+				B8EBFAB8270ADBCC008555A7 /* Signer */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		B8EBFAB7270ADBBF008555A7 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFAC1270AE453008555A7 /* OnBoardingView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		B8EBFAB8270ADBCC008555A7 /* Signer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signer;
+			sourceTree = "<group>";
+		};
+		B8EBFAC0270AE3FD008555A7 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBFABE270AE265008555A7 /* Launch Screen.storyboard */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +377,16 @@
 				B8EBFA63270AD71E008555A7 /* Sources */,
 				B8EBFA64270AD71E008555A7 /* Frameworks */,
 				B8EBFA65270AD71E008555A7 /* Resources */,
+				B8EBFABB270AE0A9008555A7 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = din;
+			packageProductDependencies = (
+				B8EBFA95270AD77E008555A7 /* Alamofire */,
+			);
 			productName = din;
 			productReference = B8EBFA67270AD71E008555A7 /* din.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +459,9 @@
 				Base,
 			);
 			mainGroup = B8EBFA5E270AD71E008555A7;
+			packageReferences = (
+				B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B8EBFA68270AD71E008555A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,7 +478,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8EBFABD270AE0E5008555A7 /* .swiftlint.yml in Resources */,
 				B8EBFA72270AD721008555A7 /* Preview Assets.xcassets in Resources */,
+				B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */,
 				B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,13 +501,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8EBFABB270AE0A9008555A7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nscript\nif which swiftlint >/dev/null; then \n    swiftlint \nelse \n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\" \nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8EBFA63270AD71E008555A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8EBFAAA270ADAFC008555A7 /* RemoteDataSource.swift in Sources */,
 				B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */,
 				B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */,
+				B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */,
+				B8EBFAAE270ADB1E008555A7 /* Injection.swift in Sources */,
+				B8EBFAA6270ADACE008555A7 /* Repository.swift in Sources */,
+				B8EBFAAC270ADB07008555A7 /* LocaleDataSource.swift in Sources */,
+				B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */,
+				B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */,
+				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +623,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -401,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -425,9 +702,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +716,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,9 +734,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,7 +748,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -607,6 +888,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8EBFA95270AD77E008555A7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8EBFA5F270AD71E008555A7 /* Project object */;
 }
