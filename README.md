@@ -1,3 +1,5 @@
+![example workflow](https://github.com/AddinDev/din/actions/workflows/CI.yml/badge.svg)
+
 # din
 A Simple Moslem App
 
