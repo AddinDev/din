@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8313DEE270D335800EBE94C /* HomePresenter.swift */; };
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
+		B88F22C6270D84BD008ED53A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C5270D84BD008ED53A /* Realm */; };
+		B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C7270D84BD008ED53A /* RealmSwift */; };
 		B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6A270AD71E008555A7 /* dinApp.swift */; };
 		B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6C270AD71E008555A7 /* ContentView.swift */; };
 		B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EBFA6E270AD721008555A7 /* Assets.xcassets */; };
@@ -45,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8313DEE270D335800EBE94C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8EBFA67270AD71E008555A7 /* din.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = din.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EBFA6A270AD71E008555A7 /* dinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dinApp.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */,
+				B88F22C6270D84BD008ED53A /* Realm in Frameworks */,
 				B8EBFA96270AD77E008555A7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +312,7 @@
 		B8EBFAB0270ADB25008555A7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B8313DEE270D335800EBE94C /* HomePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -386,6 +393,8 @@
 			name = din;
 			packageProductDependencies = (
 				B8EBFA95270AD77E008555A7 /* Alamofire */,
+				B88F22C5270D84BD008ED53A /* Realm */,
+				B88F22C7270D84BD008ED53A /* RealmSwift */,
 			);
 			productName = din;
 			productReference = B8EBFA67270AD71E008555A7 /* din.app */;
@@ -461,6 +470,7 @@
 			mainGroup = B8EBFA5E270AD71E008555A7;
 			packageReferences = (
 				B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = B8EBFA68270AD71E008555A7 /* Products */;
 			projectDirPath = "";
@@ -536,6 +546,7 @@
 				B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */,
 				B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */,
 				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
+				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +901,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -901,6 +920,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B88F22C5270D84BD008ED53A /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		B88F22C7270D84BD008ED53A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		B8EBFA95270AD77E008555A7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */;

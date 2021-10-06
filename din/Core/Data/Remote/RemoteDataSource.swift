@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import Combine
 import Alamofire
 
 protocol RemoteDataSourceProtocol {
-  
+
 }
 
 final class RemoteDataSource {
   
-  init() { }
+  init() {}
   
   static let sharedInstance: RemoteDataSource = RemoteDataSource()
   

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import RealmSwift
 
 protocol LocaleDataSourceProtocol {
   
@@ -13,9 +15,15 @@ protocol LocaleDataSourceProtocol {
 
 final class LocaleDataSource {
   
-  init() { }
+  let realm: Realm?
   
-  static let sharedInstance: LocaleDataSource = LocaleDataSource()
+  init(_ realm: Realm?) {
+    self.realm = realm
+  }
+  
+  static let sharedInstance: (Realm?) -> LocaleDataSource = { realm in
+    return LocaleDataSource(realm)
+  }
   
 }
 
