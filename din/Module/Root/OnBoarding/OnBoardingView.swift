@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnBoardingView: View {
   
+  @EnvironmentObject var systemPreference: SystemPreference
+  
   let features: [(image: String, title: String, description: String)] = [
     (image: "person", title: "We have to communiate", description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "),
     (image: "person", title: "We have to communiate", description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "),
@@ -30,6 +32,7 @@ struct OnBoardingView: View {
       Spacer()
       Button(action: {
         showState = false
+        systemPreference.doneBoarding()
       }) {
         Text("Get Started")
           .foregroundColor(.white)
