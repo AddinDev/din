@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol RepositoryProtocol {
-  
+  func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error>
 }
 
 final class Repository {
@@ -32,4 +32,10 @@ final class Repository {
 
 extension Repository: RepositoryProtocol {
   
+  func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error> {
+    self.remote.fetchListofQuranChapters()
+      .map { SurahMapper.responsesToModels($0) }
+      .eraseToAnyPublisher()
+  }
+
 }

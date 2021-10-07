@@ -11,39 +11,56 @@ struct ContentView: View {
   
   @EnvironmentObject var systemPreference: SystemPreference
   
+  @EnvironmentObject var homePresenter: HomePresenter
+
   @State var isShowBoardingScreen = false
   
   @State private var viewSelected = 0
   
-    var body: some View {
-      TabView(selection: $viewSelected) {
-        HomeView()
-          .tabItem {
-            Image(systemName: "circle.bottomthird.split")
-          }
-          .tag(0)
-        SettingsView()
-          .tabItem {
-            Image(systemName: "helm") // circle.lefthalf.fill  helm
-          }
-          .tag(1)
-      }
-      .onAppear {
-        if systemPreference.didBoarding == false {
-        isShowBoardingScreen = true
+  var body: some View {
+    TabView(selection: $viewSelected) {
+      HomeView(presenter: homePresenter)
+        .tabItem {
+          Image(systemName: "circle.bottomthird.split")
         }
+        .tag(0)
+      Text("Quran Hadits")
+        .tabItem {
+          Text("2")
+        }
+        .tag(1)
+      Text("Dzikir Doa Harian")
+        .tabItem {
+          Text("3")
+        }
+        .tag(2)
+      Text("Audio Book Video Terkait Keagamaan")
+        .tabItem {
+          Text("4")
+        }
+        .tag(3)
+      SettingsView()
+        .tabItem {
+          Image(systemName: "helm") // circle.lefthalf.fill  helm
+        }
+        .tag(4)
+    }
+    .onAppear {
+      if systemPreference.didBoarding == false {
+        isShowBoardingScreen = true
       }
-      .sheet(isPresented: $isShowBoardingScreen) {
-        systemPreference.doneBoarding()
-      } content: {
-        OnBoardingView(showState: $isShowBoardingScreen)
-          .environmentObject(systemPreference)
     }
+    .sheet(isPresented: $isShowBoardingScreen) {
+      systemPreference.doneBoarding()
+    } content: {
+      OnBoardingView(showState: $isShowBoardingScreen)
+        .environmentObject(systemPreference)
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

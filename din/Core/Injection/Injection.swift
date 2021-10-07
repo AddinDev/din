@@ -17,4 +17,8 @@ final class Injection {
     return Repository.sharedInstance(remote, locale)
   }
   
+  func provideHome() -> HomeUseCase {
+    return HomeInteractor(repository: provideRepository())
+  }
+  
 }
