@@ -13,20 +13,32 @@ struct ContentView: View {
   
   @State var isShowBoardingScreen = false
   
+  @State private var viewSelected = 0
+  
     var body: some View {
-      HomeView()
-        .onAppear {
-          if systemPreference.didBoarding == false {
-          isShowBoardingScreen = true
+      TabView(selection: $viewSelected) {
+        HomeView()
+          .tabItem {
+            Image(systemName: "circle.bottomthird.split")
           }
-        }
-        .sheet(isPresented: $isShowBoardingScreen) {
-          systemPreference.doneBoarding()
-        } content: {
-          OnBoardingView(showState: $isShowBoardingScreen)
-            .environmentObject(systemPreference)
-        
+          .tag(0)
+        SettingsView()
+          .tabItem {
+            Image(systemName: "helm") // circle.lefthalf.fill  helm
+          }
+          .tag(1)
       }
+      .onAppear {
+        if systemPreference.didBoarding == false {
+        isShowBoardingScreen = true
+        }
+      }
+      .sheet(isPresented: $isShowBoardingScreen) {
+        systemPreference.doneBoarding()
+      } content: {
+        OnBoardingView(showState: $isShowBoardingScreen)
+          .environmentObject(systemPreference)
+    }
     }
 }
 

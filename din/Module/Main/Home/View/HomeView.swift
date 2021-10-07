@@ -8,39 +8,76 @@
 import SwiftUI
 
 struct HomeView: View {
-  private let prayers = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]
-    var body: some View {
-      VStack {
-        prayerTime
-      }
+  
+  private let prayerNames = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]
+  private let prayerTimes = ["04 45", "11 45", "14 45", "17 45", "18 45"]
+  private let prayerNow: Int = 1
+  
+  var body: some View {
+    ScrollView {
+    VStack {
+      placeAndDate
+      prayerTime
+      spacer
     }
+    }
+  }
 }
 
 extension HomeView {
   
-  var prayerTime: some View {
+  var spacer: some View {
+    Spacer()
+  }
+  
+  var placeAndDate: some View {
     HStack {
       VStack(alignment: .leading) {
-        Text("11 45")
-          .font(.largeTitle)
+        Text("Senin")
+        Text("7 Oktober")
+          .foregroundColor(.gray)
+      }
+      Spacer()
+      Text("Jakarta Pusat")
+    }
+    .padding(.horizontal)
+    .padding(.vertical, 7)
+  }
+  
+  var prayerTime: some View {
+    HStack {
+      VStack(alignment: .leading, spacing: 0) {
+        Text(prayerTimes[prayerNow])
+          .font(.system(size: 50))
           .fontWeight(.medium)
-        Text("Dzuhur")
+        Text(prayerNames[prayerNow])
           .font(.title2)
           .fontWeight(.semibold)
           .foregroundColor(.gray)
       }
-      VStack {
-        ForEach(prayers, id: \.self) { prayer in
-          Text(prayer)
+      HStack {
+        VStack(alignment: .trailing) {
+          ForEach(prayerTimes.filter { $0 != prayerTimes[prayerNow] }, id: \.self) { time in
+            Text(time)
+              .fontWeight(.medium)
+          }
+        }
+        VStack(alignment: .leading) {
+          ForEach(prayerNames.filter { $0 != prayerNames[prayerNow] }, id: \.self) { name in
+            Text(name)
+              .fontWeight(.semibold)
+              .foregroundColor(.gray)
+          }
         }
       }
+      .padding(.horizontal)
     }
   }
   
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+  static var previews: some View {
+    HomeView()
+  }
 }

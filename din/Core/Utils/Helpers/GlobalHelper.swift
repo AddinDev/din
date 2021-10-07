@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 // sharing feature
 @discardableResult
 func share(
