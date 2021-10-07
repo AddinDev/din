@@ -27,6 +27,7 @@ class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   }
   
   func requestPermission() {
+    print("TASK: request permission")
     locationManager.requestWhenInUseAuthorization()
   }
   
@@ -46,10 +47,10 @@ class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let geocoder = CLGeocoder()
     geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
       if let error = error {
-        print("error: \(error)")
+        print("TASKERROR: \(error)")
       } else {
         self.currentPlacemark = placemarks?.first
-        print("location: \(self.currentPlacemark?.locality ?? "")")
+        print("TASK: location: \(self.currentPlacemark?.locality ?? "")")
       }
     }
   }

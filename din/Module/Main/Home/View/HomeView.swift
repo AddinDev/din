@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var presenter: HomePresenter
-    
+  
   // dummy data, the real data is from API
   private let prayerNames = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]
   private let prayerTimes = ["04 45", "11 45", "14 45", "17 45", "18 45"]
@@ -21,16 +21,8 @@ struct HomeView: View {
       VStack {
         placeAndDate
         prayerTime
-//        hadits
+        //        hadits
         requestLocationPermissionButton
-        ForEach(presenter.surahs) { surah in
-          Text(surah.nameSimple)
-        }
-      }
-    }
-    .onAppear {
-      if presenter.surahs.count == 0 {
-        presenter.fetchSurahs()
       }
     }
   }
@@ -51,7 +43,9 @@ extension HomeView {
       }
       Spacer()
       if let location = presenter.currentPlacemark?.locality {
-      Text(location)
+        Text(location)
+      } else {
+        ProgressView()
       }
     }
     .padding(.horizontal)
@@ -88,17 +82,17 @@ extension HomeView {
     }
   }
   
-//  var hadits: some View {
-//    ScrollView(.horizontal, showsIndicators: false) {
-//      HStack {
-//
-//        ForEach(0..<5) { _ in
-//          Hadits()
-//        }
-//
-//      }
-//    }
-//  }
+  //  var hadits: some View {
+  //    ScrollView(.horizontal, showsIndicators: false) {
+  //      HStack {
+  //
+  //        ForEach(0..<5) { _ in
+  //          Hadits()
+  //        }
+  //
+  //      }
+  //    }
+  //  }
   
   var requestLocationPermissionButton: some View {
     Button(action: {
@@ -125,5 +119,3 @@ extension HomeView {
   }
   
 }
-
-

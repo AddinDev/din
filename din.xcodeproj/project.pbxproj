@@ -14,6 +14,10 @@
 		B8328123270ED6BC00E18875 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8328122270ED6BC00E18875 /* Api.swift */; };
 		B8328126270ED88500E18875 /* SurahModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8328125270ED88500E18875 /* SurahModel.swift */; };
 		B8328129270ED91100E18875 /* SurahMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8328128270ED91100E18875 /* SurahMapper.swift */; };
+		B835C16C270F2E98009CD9B6 /* Tab1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C16B270F2E98009CD9B6 /* Tab1View.swift */; };
+		B835C16E270F2EA6009CD9B6 /* Tab1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C16D270F2EA6009CD9B6 /* Tab1Presenter.swift */; };
+		B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */; };
+		B835C173270F350A009CD9B6 /* Tab1SurahListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C172270F350A009CD9B6 /* Tab1SurahListView.swift */; };
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
 		B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876DD54270DE12800574D81 /* SystemPreference.swift */; };
 		B88F22C6270D84BD008ED53A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C5270D84BD008ED53A /* Realm */; };
@@ -64,6 +68,10 @@
 		B8328122270ED6BC00E18875 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B8328125270ED88500E18875 /* SurahModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahModel.swift; sourceTree = "<group>"; };
 		B8328128270ED91100E18875 /* SurahMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahMapper.swift; sourceTree = "<group>"; };
+		B835C16B270F2E98009CD9B6 /* Tab1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1View.swift; sourceTree = "<group>"; };
+		B835C16D270F2EA6009CD9B6 /* Tab1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Presenter.swift; sourceTree = "<group>"; };
+		B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Interactor.swift; sourceTree = "<group>"; };
+		B835C172270F350A009CD9B6 /* Tab1SurahListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1SurahListView.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
 		B89F0721270E9BA3004B7557 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -139,6 +147,48 @@
 				B8328128270ED91100E18875 /* SurahMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		B835C167270F2E7B009CD9B6 /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+				B835C16A270F2E8C009CD9B6 /* View */,
+				B835C169270F2E89009CD9B6 /* Presenter */,
+				B835C168270F2E86009CD9B6 /* Router */,
+				B835C171270F34F4009CD9B6 /* Others */,
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		B835C168270F2E86009CD9B6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B835C169270F2E89009CD9B6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B835C16D270F2EA6009CD9B6 /* Tab1Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B835C16A270F2E8C009CD9B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B835C16B270F2E98009CD9B6 /* Tab1View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B835C171270F34F4009CD9B6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B835C172270F350A009CD9B6 /* Tab1SurahListView.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		B8552DCD270BF0A00044D49F /* SystemPreference */ = {
@@ -284,8 +334,8 @@
 		B8EBFA9A270AD7E7008555A7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B89F0723270EAC6B004B7557 /* Features */,
 				B8552DCD270BF0A00044D49F /* SystemPreference */,
+				B89F0723270EAC6B004B7557 /* Features */,
 				B8EBFA9F270AD808008555A7 /* Injection */,
 				B8EBFA9E270AD804008555A7 /* Data */,
 				B8EBFA9D270AD7FF008555A7 /* Domain */,
@@ -355,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */,
+				B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -434,6 +485,7 @@
 		B8EBFAB5270ADB96008555A7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B835C167270F2E7B009CD9B6 /* Tab1 */,
 				B8EBFA9B270AD7ED008555A7 /* Home */,
 				B89F071D270E9785004B7557 /* Settings */,
 			);
@@ -639,8 +691,11 @@
 				B8328121270ED5DE00E18875 /* QuranResponse.swift in Sources */,
 				B8EBFAAA270ADAFC008555A7 /* RemoteDataSource.swift in Sources */,
 				B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */,
+				B835C173270F350A009CD9B6 /* Tab1SurahListView.swift in Sources */,
 				B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */,
 				B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */,
+				B835C16E270F2EA6009CD9B6 /* Tab1Presenter.swift in Sources */,
+				B835C16C270F2E98009CD9B6 /* Tab1View.swift in Sources */,
 				B8EBFAAE270ADB1E008555A7 /* Injection.swift in Sources */,
 				B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */,
 				B8328129270ED91100E18875 /* SurahMapper.swift in Sources */,
@@ -653,6 +708,7 @@
 				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
 				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
 				B8328126270ED88500E18875 /* SurahModel.swift in Sources */,
+				B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */,
 				B832811D270ED0BA00E18875 /* HomeHaditsListView.swift in Sources */,
 				B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */,
 			);

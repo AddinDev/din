@@ -12,6 +12,7 @@ struct ContentView: View {
   @EnvironmentObject var systemPreference: SystemPreference
   
   @EnvironmentObject var homePresenter: HomePresenter
+  @EnvironmentObject var tab1Presenter: Tab1Presenter
 
   @State var isShowBoardingScreen = false
   
@@ -24,7 +25,7 @@ struct ContentView: View {
           Image(systemName: "circle.bottomthird.split")
         }
         .tag(0)
-      Text("Quran Hadits")
+      Tab1View(presenter: tab1Presenter)
         .tabItem {
           Text("2")
         }

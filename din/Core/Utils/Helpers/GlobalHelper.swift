@@ -25,3 +25,24 @@ func share(
     source.present(vc, animated: true)
     return true
 }
+
+struct LoadingIndicator: View {
+  var body: some View {
+    VStack {
+      ProgressView()
+        .progressViewStyle(CircularProgressViewStyle())
+      Text("Loading...")
+    }
+  }
+}
+
+struct ErrorIndicator: View {
+  var message: String
+  var body: some View {
+    VStack {
+      Text("ERROR")
+      Text(message)
+    }
+    .padding()
+  }
+}
