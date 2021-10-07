@@ -9,17 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
   
+  // dummy data, the real data is from API
   private let prayerNames = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]
   private let prayerTimes = ["04 45", "11 45", "14 45", "17 45", "18 45"]
   private let prayerNow: Int = 1
   
   var body: some View {
     ScrollView {
-    VStack {
-      placeAndDate
-      prayerTime
-      spacer
-    }
+      VStack {
+        placeAndDate
+        prayerTime
+        spacer
+      }
     }
   }
 }
@@ -33,8 +34,8 @@ extension HomeView {
   var placeAndDate: some View {
     HStack {
       VStack(alignment: .leading) {
-        Text("Senin")
-        Text("7 Oktober")
+        Text(getDay())
+        Text(getDate())
           .foregroundColor(.gray)
       }
       Spacer()
@@ -72,6 +73,22 @@ extension HomeView {
       }
       .padding(.horizontal)
     }
+  }
+  
+  private func getDate() -> String {
+    let time = Date()
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "d MMMM"
+    let stringDate = timeFormatter.string(from: time)
+    return stringDate
+  }
+  
+  private func getDay() -> String {
+    let time = Date()
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "EEEE"
+    let stringDate = timeFormatter.string(from: time)
+    return stringDate
   }
   
 }
