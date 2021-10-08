@@ -10,6 +10,7 @@ import Combine
 
 protocol RepositoryProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error>
+  func fetchNews() -> AnyPublisher<NewsModels, Error>
 }
 
 final class Repository {
@@ -35,6 +36,12 @@ extension Repository: RepositoryProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error> {
     self.remote.fetchListofQuranChapters()
       .map { SurahMapper.responsesToModels($0) }
+      .eraseToAnyPublisher()
+  }
+  
+  func fetchNews() -> AnyPublisher<NewsModels, Error> {
+    self.remote.fetchNews()
+      .map { NewsMapper.responsesToModels($0) }
       .eraseToAnyPublisher()
   }
 

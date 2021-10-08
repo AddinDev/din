@@ -10,6 +10,7 @@ import Combine
 
 protocol HomeUseCase {
   func fetchSurahs() -> AnyPublisher<SurahModels, Error>
+  func fetchNews() -> AnyPublisher<NewsModels, Error>
 }
 
 class HomeInteractor {
@@ -26,6 +27,10 @@ extension HomeInteractor: HomeUseCase {
   
   func fetchSurahs() -> AnyPublisher<SurahModels, Error> {
     self.repository.fetchListofQuranChapters()
+  }
+  
+  func fetchNews() -> AnyPublisher<NewsModels, Error> {
+    self.repository.fetchNews()
   }
   
 }

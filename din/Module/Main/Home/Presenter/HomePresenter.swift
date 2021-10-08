@@ -18,27 +18,53 @@ class HomePresenter: AdzanManager {
   @Published var isError = false
   @Published var errorMessage = ""
   
+  @Published var newsLoading = false
+  @Published var newsError = false
+  @Published var newsErrorMessage = ""
+  
   @Published var surahs: SurahModels = []
+  
+  @Published var news: NewsModels = []
   
   init(useCase: HomeUseCase) {
     self.useCase = useCase
   }
   
-  func fetchSurahs() {
-    self.isLoading = true
-    self.useCase.fetchSurahs()
+//  func fetchSurahs() {
+//    self.isLoading = true
+//    self.useCase.fetchSurahs()
+//      .receive(on: RunLoop.main)
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            self.isLoading = false
+//          case .failure(let error):
+//            self.errorMessage = error.localizedDescription
+//            self.isError = true
+//            self.isLoading = false
+//        }
+//      } receiveValue: { surahs in
+//        self.surahs = surahs
+//      }
+//      .store(in: &cancellables)
+//  }
+  
+  func fetchNews() {
+    self.newsLoading = true
+    self.newsError = false
+    self.useCase.fetchNews()
       .receive(on: RunLoop.main)
       .sink { completion in
         switch completion {
           case .finished:
-            self.isLoading = false
+            self.newsLoading = false
           case .failure(let error):
-            self.errorMessage = error.localizedDescription
-            self.isError = true
-            self.isLoading = false
+            self.newsErrorMessage = error.localizedDescription
+            self.newsError = true
+            self.newsLoading = false
         }
-      } receiveValue: { surahs in
-        self.surahs = surahs
+      } receiveValue: { news in
+        self.news = news
       }
       .store(in: &cancellables)
   }

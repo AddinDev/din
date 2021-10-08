@@ -11,6 +11,7 @@ import Alamofire
 
 protocol RemoteDataSourceProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahResponses, Error>
+  func fetchNews() -> AnyPublisher<NewsResponses, Error>
 }
 
 final class RemoteDataSource {
@@ -36,6 +37,23 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
             case .failure(let error):
               completion(.failure(error))
               print("TASKERROR: \(error.localizedDescription)")
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchNews() -> AnyPublisher<NewsResponses, Error> {
+    return Future<NewsResponses, Error> { completion in
+      guard let url = URL(string: Api.newsApi) else { return }
+      AF.request(url)
+        .validate()
+        .responseDecodable(of: IslamicNewsResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              completion(.success(value.articles))
+            case .failure(let error):
+              completion(.failure(error))
           }
         }
     }
