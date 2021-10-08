@@ -10,6 +10,8 @@ import Combine
 
 class HomePresenter: AdzanManager {
   
+  private let router = HomeRouter()
+  
   private let useCase: HomeUseCase
   
   private var cancellables: Set<AnyCancellable> = []
@@ -30,25 +32,6 @@ class HomePresenter: AdzanManager {
     self.useCase = useCase
   }
   
-//  func fetchSurahs() {
-//    self.isLoading = true
-//    self.useCase.fetchSurahs()
-//      .receive(on: RunLoop.main)
-//      .sink { completion in
-//        switch completion {
-//          case .finished:
-//            self.isLoading = false
-//          case .failure(let error):
-//            self.errorMessage = error.localizedDescription
-//            self.isError = true
-//            self.isLoading = false
-//        }
-//      } receiveValue: { surahs in
-//        self.surahs = surahs
-//      }
-//      .store(in: &cancellables)
-//  }
-  
   func fetchNews() {
     self.newsLoading = true
     self.newsError = false
@@ -67,6 +50,10 @@ class HomePresenter: AdzanManager {
         self.news = news
       }
       .store(in: &cancellables)
+  }
+  
+  func newsDetailLinkBuilder<Content: View>(for news: NewsModel, @ViewBuilder content: () -> Content ) -> some View {
+    NavigationLink(destination: router.makeDetailView(news: news)) { content() }
   }
   
 }

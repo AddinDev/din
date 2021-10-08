@@ -25,4 +25,8 @@ final class Injection {
     return Tab1Interactor(repository: provideRepository())
   }
   
+  func provideNewsDetail() -> NewsDetailUseCase {
+    return NewsDetailInteractor(repository: provideRepository())
+  }
+  
 }

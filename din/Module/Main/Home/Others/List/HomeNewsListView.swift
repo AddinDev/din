@@ -20,12 +20,11 @@ struct HomeNewsListView: View {
         }
       }
       .frame(height: 200)
-//      .cornerRadius(15)
       .scaledToFit()
-//      .shadow(color: .gray.opacity(0.5), radius: 5, x: 5, y: 5)
       
       VStack(alignment: .leading) {
         Text(news.title)
+          .multilineTextAlignment(.leading)
           .lineLimit(2)
           .padding(.vertical, 5)
         HStack {
@@ -39,7 +38,6 @@ struct HomeNewsListView: View {
     }
     .foregroundColor(.primary)
     .padding(10)
-//    .background(BlurEffectView(style: .regular))
     .cornerRadius(15)
     .padding(.horizontal, 10)
   }

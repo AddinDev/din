@@ -28,6 +28,10 @@
 		B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C7270D84BD008ED53A /* RealmSwift */; };
 		B89490802710213500705139 /* HomeNewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894907F2710213500705139 /* HomeNewsListView.swift */; };
 		B89490832710239B00705139 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B89490822710239B00705139 /* SDWebImageSwiftUI */; };
+		B89A6A7F271075840008E208 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89A6A7E271075840008E208 /* HomeRouter.swift */; };
+		B89A6A81271076000008E208 /* NewsDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89A6A80271076000008E208 /* NewsDetailInteractor.swift */; };
+		B89A6A8A2710773E0008E208 /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89A6A892710773E0008E208 /* NewsDetailView.swift */; };
+		B89A6A8C271077850008E208 /* NewsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89A6A8B271077850008E208 /* NewsDetailPresenter.swift */; };
 		B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F0721270E9BA3004B7557 /* SettingsView.swift */; };
 		B89F0726270EAC83004B7557 /* AdzanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F0725270EAC83004B7557 /* AdzanManager.swift */; };
 		B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6A270AD71E008555A7 /* dinApp.swift */; };
@@ -85,6 +89,10 @@
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
 		B894907F2710213500705139 /* HomeNewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsListView.swift; sourceTree = "<group>"; };
+		B89A6A7E271075840008E208 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		B89A6A80271076000008E208 /* NewsDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailInteractor.swift; sourceTree = "<group>"; };
+		B89A6A892710773E0008E208 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
+		B89A6A8B271077850008E208 /* NewsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailPresenter.swift; sourceTree = "<group>"; };
 		B89F0721270E9BA3004B7557 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B89F0725270EAC83004B7557 /* AdzanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanManager.swift; sourceTree = "<group>"; };
 		B8EBFA67270AD71E008555A7 /* din.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = din.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,8 +148,7 @@
 		B832811B270ED09E00E18875 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				B832811C270ED0BA00E18875 /* HomeHaditsListView.swift */,
-				B894907F2710213500705139 /* HomeNewsListView.swift */,
+				B89A6A82271076CE0008E208 /* List */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -212,6 +219,48 @@
 				B876DD54270DE12800574D81 /* SystemPreference.swift */,
 			);
 			path = SystemPreference;
+			sourceTree = "<group>";
+		};
+		B89A6A82271076CE0008E208 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B832811C270ED0BA00E18875 /* HomeHaditsListView.swift */,
+				B894907F2710213500705139 /* HomeNewsListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B89A6A83271076D40008E208 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B89A6A84271076DF0008E208 /* News */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B89A6A84271076DF0008E208 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B89A6A86271076E90008E208 /* View */,
+				B89A6A85271076E50008E208 /* Presenter */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B89A6A85271076E50008E208 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B89A6A8B271077850008E208 /* NewsDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B89A6A86271076E90008E208 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B89A6A892710773E0008E208 /* NewsDetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B89F071D270E9785004B7557 /* Settings */ = {
@@ -422,6 +471,7 @@
 			children = (
 				B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */,
 				B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */,
+				B89A6A80271076000008E208 /* NewsDetailInteractor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -471,6 +521,7 @@
 		B8EBFAAF270ADB22008555A7 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				B89A6A7E271075840008E208 /* HomeRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -502,6 +553,7 @@
 		B8EBFAB5270ADB96008555A7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B89A6A83271076D40008E208 /* Detail */,
 				B8EBFA9B270AD7ED008555A7 /* Home */,
 				B835C167270F2E7B009CD9B6 /* Tab1 */,
 				B89F071D270E9785004B7557 /* Settings */,
@@ -720,16 +772,20 @@
 				B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */,
 				B8328129270ED91100E18875 /* SurahMapper.swift in Sources */,
 				B8EBFAA6270ADACE008555A7 /* Repository.swift in Sources */,
+				B89A6A81271076000008E208 /* NewsDetailInteractor.swift in Sources */,
 				B8EBFAAC270ADB07008555A7 /* LocaleDataSource.swift in Sources */,
 				B89F0726270EAC83004B7557 /* AdzanManager.swift in Sources */,
 				B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */,
 				B832811F270ED0F800E18875 /* HaditsModel.swift in Sources */,
 				B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */,
+				B89A6A7F271075840008E208 /* HomeRouter.swift in Sources */,
 				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
 				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
+				B89A6A8C271077850008E208 /* NewsDetailPresenter.swift in Sources */,
 				B8328126270ED88500E18875 /* SurahModel.swift in Sources */,
 				B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */,
 				B89490802710213500705139 /* HomeNewsListView.swift in Sources */,
+				B89A6A8A2710773E0008E208 /* NewsDetailView.swift in Sources */,
 				B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */,
 				B832811D270ED0BA00E18875 /* HomeHaditsListView.swift in Sources */,
 				B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */,

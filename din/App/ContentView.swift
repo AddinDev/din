@@ -13,50 +13,54 @@ struct ContentView: View {
   
   @EnvironmentObject var homePresenter: HomePresenter
   @EnvironmentObject var tab1Presenter: Tab1Presenter
-
+  
   @State var isShowBoardingScreen = false
   
   @State private var viewSelected = 0
   
   var body: some View {
-    TabView(selection: $viewSelected) {
-      HomeView(presenter: homePresenter)
-        .tabItem {
-          Image(systemName: "circle.bottomthird.split")
+      TabView(selection: $viewSelected) {
+        NavigationView {
+        HomeView(presenter: homePresenter)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
-        .tag(0)
-      Tab1View(presenter: tab1Presenter)
-        .tabItem {
-          Image(systemName: "circlebadge.2.fill")
-        }
-        .tag(1)
-      Text("Dzikir Doa Harian")
-        .tabItem {
-          Image(systemName: "helm")
-        }
-        .tag(2)
-      Text("Audio Book Video Terkait Keagamaan")
-        .tabItem {
-          Text("4")
-        }
-        .tag(3)
-      SettingsView()
-        .tabItem {
-          Image(systemName: "gear") // circle.lefthalf.fill  helm
-        }
-        .tag(4)
-    }
-    .onAppear {
-      if systemPreference.didBoarding == false {
-        isShowBoardingScreen = true
+          .tabItem {
+            Image(systemName: "circle.bottomthird.split")
+          }
+          .tag(0)
+        Tab1View(presenter: tab1Presenter)
+          .tabItem {
+            Image(systemName: "circlebadge.2.fill")
+          }
+          .tag(1)
+        Text("Dzikir Doa Harian")
+          .tabItem {
+            Image(systemName: "helm")
+          }
+          .tag(2)
+        Text("Audio Book Video Terkait Keagamaan")
+          .tabItem {
+            Text("4")
+          }
+          .tag(3)
+        SettingsView()
+          .tabItem {
+            Image(systemName: "gear") // circle.lefthalf.fill  helm
+          }
+          .tag(4)
       }
-    }
-    .sheet(isPresented: $isShowBoardingScreen) {
-      systemPreference.doneBoarding()
-    } content: {
-      OnBoardingView(showState: $isShowBoardingScreen)
-        .environmentObject(systemPreference)
-    }
+      .onAppear {
+        if systemPreference.didBoarding == false {
+          isShowBoardingScreen = true
+        }
+      }
+      .sheet(isPresented: $isShowBoardingScreen) {
+        systemPreference.doneBoarding()
+      } content: {
+        OnBoardingView(showState: $isShowBoardingScreen)
+          .environmentObject(systemPreference)
+      }
   }
 }
 

@@ -127,7 +127,9 @@ extension HomeView {
         ErrorIndicator(message: presenter.newsErrorMessage)
       } else {
         ForEach(presenter.news) { news in
-          HomeNewsListView(news: news)
+          presenter.newsDetailLinkBuilder(for: news) {
+            HomeNewsListView(news: news)
+          }
         }
       }
     }
