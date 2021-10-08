@@ -12,13 +12,13 @@ struct HomeHaditsListView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       Text("\"\(hadits.text)\"")
+        .fontWeight(.medium)
         .lineLimit(3)
       Text(hadits.source)
         .font(.callout)
         .foregroundColor(.gray)
     }
     .frame(width: UIScreen.main.bounds.width - 50)
-    .padding(.vertical, 10)
-    .padding(.leading, 14)
+    .padding(.leading)
   }
 }

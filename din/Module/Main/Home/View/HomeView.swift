@@ -21,7 +21,7 @@ struct HomeView: View {
       VStack {
         placeAndDate
         prayerTime
-        //        hadits
+        hadits
         requestLocationPermissionButton
       }
     }
@@ -82,17 +82,32 @@ extension HomeView {
     }
   }
   
-  //  var hadits: some View {
-  //    ScrollView(.horizontal, showsIndicators: false) {
-  //      HStack {
-  //
-  //        ForEach(0..<5) { _ in
-  //          Hadits()
-  //        }
-  //
-  //      }
-  //    }
-  //  }
+  var hadits: some View {
+    VStack {
+      HStack {
+        Spacer()
+        Button(action: {
+          print("open new screen")
+        }) {
+          Text("More")
+          Image(systemName: "arrow.right") // chevron
+        }
+      }
+      .padding(.trailing)
+      ScrollView(.horizontal, showsIndicators: false) {
+        ScrollViewReader { value in
+        HStack {
+          ForEach(0..<3) { i in
+            HomeHaditsListView(hadits: HaditsModel(text: "aa aaaa aaaaaaa aaaaa aaaa aaaaa aaaa aaaa aaa aaaaaaa aaaaa", source: "HR UDIN"))
+              .id(i)
+          }
+        }
+        .onAppear { withAnimation(.linear) { value.scrollTo(1, anchor: .center) } }
+      }
+      }
+    }
+    .padding(.vertical)
+  }
   
   var requestLocationPermissionButton: some View {
     Button(action: {

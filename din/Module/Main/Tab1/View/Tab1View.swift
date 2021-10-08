@@ -12,8 +12,30 @@ struct Tab1View: View {
   @ObservedObject var presenter: Tab1Presenter
   
   @State private var selected = 0
-    
+  
   var body: some View {
+    Group {
+      if presenter.quranLoading {
+        LoadingIndicator()
+      } else if presenter.quranError {
+        ErrorIndicator(message: presenter.quranErrorMessage)
+      } else {
+        content
+      }
+    }
+    .transition(.slide)
+    .animation(.spring())
+    .onAppear {
+      if presenter.surahs.count == 0 {
+        presenter.fetchSurahs()
+      }
+    }
+  }
+}
+
+extension Tab1View {
+  
+  var content: some View {
     VStack {
       HStack {
         Picker("Title", selection: $selected) {
@@ -25,40 +47,53 @@ struct Tab1View: View {
         .padding(.vertical, 7)
       }
       Group {
-        if selected == 0 {
+        TabView(selection: $selected) {
           quran
-        } else {
+            .tag(0)
           hadits
+            .tag(1)
         }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .indexViewStyle(.page)
       }
     }
   }
-}
-
-extension Tab1View {
   
   var quran: some View {
-    Group {
-      if presenter.isLoading {
-        LoadingIndicator()
-      } else if presenter.isError {
-        ErrorIndicator(message: presenter.errorMessage)
-      } else {
-        List(presenter.surahs) { surah in
-          Tab1SurahListView(surah: surah)
+    List {
+      HStack {
+        Spacer()
+        Menu {
+//          Button("Sort") { print("sorted") }
+          Menu {
+            Button("Place") { print("sorted") }
+            Button("Time") { print("sorted") }
+          } label: {
+            Text("Sort")
+          }
+        } label: {
+          Text("Edit")
         }
       }
-    }
-    .animation(.linear)
-    .onAppear {
-      if presenter.surahs.count == 0 {
-        presenter.fetchSurahs()
+      ForEach(presenter.surahs) { surah in
+        Tab1SurahListView(surah: surah)
+          .contextMenu {
+            Button(action: {
+              print("downloaded")
+            }) {
+              Label("Download", systemImage: "cloud")
+            }
+          }
       }
     }
+    .listStyle(PlainListStyle())
   }
   
   var hadits: some View {
-    Text("Hadits")
+    VStack {
+      Text("Hadits")
+      Spacer()
+    }
   }
-
+  
 }

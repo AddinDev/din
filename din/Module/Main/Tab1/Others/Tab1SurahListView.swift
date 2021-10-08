@@ -11,6 +11,7 @@ struct Tab1SurahListView: View {
   var surah: SurahModel
   var body: some View {
     HStack {
+      Text(String(surah.id))
       VStack(alignment: .leading) {
         Text(surah.nameArabic)
         Text(surah.nameSimple)

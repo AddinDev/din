@@ -485,8 +485,8 @@
 		B8EBFAB5270ADB96008555A7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B835C167270F2E7B009CD9B6 /* Tab1 */,
 				B8EBFA9B270AD7ED008555A7 /* Home */,
+				B835C167270F2E7B009CD9B6 /* Tab1 */,
 				B89F071D270E9785004B7557 /* Settings */,
 			);
 			path = Main;

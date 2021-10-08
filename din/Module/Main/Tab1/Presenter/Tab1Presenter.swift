@@ -14,9 +14,13 @@ class Tab1Presenter: ObservableObject {
   
   private var cancellables: Set<AnyCancellable> = []
   
-  @Published var isLoading = false
-  @Published var isError = false
-  @Published var errorMessage = ""
+  @Published var quranLoading = false
+  @Published var quranError = false
+  @Published var quranErrorMessage = ""
+  
+  @Published var haditsLoading = false
+  @Published var haditsError = false
+  @Published var haditsErrorMessage = ""
   
   @Published var surahs: SurahModels = []
   
@@ -25,17 +29,17 @@ class Tab1Presenter: ObservableObject {
   }
   
   func fetchSurahs() {
-    self.isLoading = true
+    self.quranLoading = true
     self.useCase.fetchSurahs()
       .receive(on: RunLoop.main)
       .sink { completion in
         switch completion {
           case .finished:
-            self.isLoading = false
+            self.quranLoading = false
           case .failure(let error):
-            self.errorMessage = error.localizedDescription
-            self.isError = true
-            self.isLoading = false
+            self.quranErrorMessage = error.localizedDescription
+            self.quranError = true
+            self.quranLoading = false
         }
       } receiveValue: { surahs in
         self.surahs = surahs
