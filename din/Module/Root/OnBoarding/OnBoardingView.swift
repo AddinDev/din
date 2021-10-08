@@ -12,19 +12,23 @@ struct OnBoardingView: View {
   @EnvironmentObject var systemPreference: SystemPreference
   
   let features: [(image: String, title: String, description: String)] = [
-    (image: "person", title: "We have to communiate", description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "),
-    (image: "person", title: "We have to communiate", description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "),
-    (image: "person", title: "We have to communiate", description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ")
+    (image: "star.fill", title: "100% Free Without Ads", description: "Just do everything! We won't disturb you."),
+    (image: "text.badge.checkmark", title: "Tons of Features", description: "We've got you covered."),
+    (image: "person.circle", title: "Growing community", description: "We are just a team of young man that’s gonna change the future.")
   ]
   
   @Binding var showState: Bool
   
   var body: some View {
-    VStack {
+    VStack(alignment: .leading) {
       Spacer()
-      Text("What's din Can Do?")
-        .font(.largeTitle)
-        .fontWeight(.bold)
+      HStack {
+        Spacer()
+        Text("What's din Can Do?")
+          .font(.largeTitle)
+          .fontWeight(.bold)
+        Spacer()
+      }
       Spacer()
       ForEach(0..<features.count) { index in
         OnBoardingList(features[index].image, features[index].title, features[index].description)

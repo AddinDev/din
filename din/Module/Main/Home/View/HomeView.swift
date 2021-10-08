@@ -18,12 +18,21 @@ struct HomeView: View {
   
   var body: some View {
     ScrollView {
-      VStack {
+      LazyVStack {
         placeAndDate
         prayerTime
+        Section(header: Text("Hadits")) {
         hadits
+          
+        }
         requestLocationPermissionButton
         NetworkConnectivityIndicator()
+        news
+      }
+    }
+    .onAppear {
+      if presenter.news.count == 0 {
+        presenter.fetchNews()
       }
     }
   }
@@ -108,6 +117,20 @@ extension HomeView {
       }
     }
     .padding(.vertical)
+  }
+  
+  var news: some View {
+    Group {
+      if presenter.newsLoading {
+        LoadingIndicator()
+      } else if presenter.newsError {
+        ErrorIndicator(message: presenter.newsErrorMessage)
+      } else {
+        ForEach(presenter.news) { news in
+          HomeNewsListView(news: news)
+        }
+      }
+    }
   }
   
   var requestLocationPermissionButton: some View {

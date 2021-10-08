@@ -26,6 +26,8 @@
 		B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876DD54270DE12800574D81 /* SystemPreference.swift */; };
 		B88F22C6270D84BD008ED53A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C5270D84BD008ED53A /* Realm */; };
 		B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C7270D84BD008ED53A /* RealmSwift */; };
+		B89490802710213500705139 /* HomeNewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894907F2710213500705139 /* HomeNewsListView.swift */; };
+		B89490832710239B00705139 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B89490822710239B00705139 /* SDWebImageSwiftUI */; };
 		B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F0721270E9BA3004B7557 /* SettingsView.swift */; };
 		B89F0726270EAC83004B7557 /* AdzanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F0725270EAC83004B7557 /* AdzanManager.swift */; };
 		B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFA6A270AD71E008555A7 /* dinApp.swift */; };
@@ -82,6 +84,7 @@
 		B84B0DC3270FF34700A93698 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
+		B894907F2710213500705139 /* HomeNewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsListView.swift; sourceTree = "<group>"; };
 		B89F0721270E9BA3004B7557 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B89F0725270EAC83004B7557 /* AdzanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanManager.swift; sourceTree = "<group>"; };
 		B8EBFA67270AD71E008555A7 /* din.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = din.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89490832710239B00705139 /* SDWebImageSwiftUI in Frameworks */,
 				B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */,
 				B88F22C6270D84BD008ED53A /* Realm in Frameworks */,
 				B8EBFA96270AD77E008555A7 /* Alamofire in Frameworks */,
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				B832811C270ED0BA00E18875 /* HomeHaditsListView.swift */,
+				B894907F2710213500705139 /* HomeNewsListView.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 				B8EBFA95270AD77E008555A7 /* Alamofire */,
 				B88F22C5270D84BD008ED53A /* Realm */,
 				B88F22C7270D84BD008ED53A /* RealmSwift */,
+				B89490822710239B00705139 /* SDWebImageSwiftUI */,
 			);
 			productName = din;
 			productReference = B8EBFA67270AD71E008555A7 /* din.app */;
@@ -634,6 +640,7 @@
 			packageReferences = (
 				B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				B89490812710239B00705139 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B8EBFA68270AD71E008555A7 /* Products */;
 			projectDirPath = "";
@@ -722,6 +729,7 @@
 				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
 				B8328126270ED88500E18875 /* SurahModel.swift in Sources */,
 				B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */,
+				B89490802710213500705139 /* HomeNewsListView.swift in Sources */,
 				B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */,
 				B832811D270ED0BA00E18875 /* HomeHaditsListView.swift in Sources */,
 				B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */,
@@ -1091,6 +1099,14 @@
 				kind = branch;
 			};
 		};
+		B89490812710239B00705139 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1111,6 +1127,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B88F22C4270D84BD008ED53A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		B89490822710239B00705139 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B89490812710239B00705139 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		B8EBFA95270AD77E008555A7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

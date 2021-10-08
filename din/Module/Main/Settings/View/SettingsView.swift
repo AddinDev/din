@@ -11,6 +11,13 @@ struct SettingsView: View {
   var body: some View {
     List {
       Section(
+        header: Text("App Info"),
+        footer: EmptyView()
+      ) {
+        appVersion
+        appResources
+      }
+      Section(
         header: Text("Support the Developers"),
         footer: Text("Thanks for your support :)")
       ) {
@@ -22,6 +29,22 @@ struct SettingsView: View {
 }
 
 extension SettingsView {
+  
+  var appVersion: some View {
+    HStack {
+      Text("App Version")
+      Spacer()
+      Text("Alpha 1.0")
+    }
+  }
+  
+  var appResources: some View {
+      DisclosureGroup("Resources") {
+        Text("Item 1")
+        Text("Item 2")
+        Text("Item 3")
+    }
+  }
   
   var shareButton: some View {
     Button(action: {

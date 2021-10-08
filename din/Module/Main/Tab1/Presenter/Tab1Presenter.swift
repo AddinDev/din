@@ -42,7 +42,9 @@ class Tab1Presenter: ObservableObject {
             self.quranLoading = false
         }
       } receiveValue: { surahs in
-        self.surahs = surahs
+        DispatchQueue.main.async {
+          self.surahs = surahs
+        }
       }
       .store(in: &cancellables)
   }

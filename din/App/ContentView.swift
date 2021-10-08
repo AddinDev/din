@@ -27,12 +27,12 @@ struct ContentView: View {
         .tag(0)
       Tab1View(presenter: tab1Presenter)
         .tabItem {
-          Text("2")
+          Image(systemName: "circlebadge.2.fill")
         }
         .tag(1)
       Text("Dzikir Doa Harian")
         .tabItem {
-          Text("3")
+          Image(systemName: "helm")
         }
         .tag(2)
       Text("Audio Book Video Terkait Keagamaan")
@@ -42,7 +42,7 @@ struct ContentView: View {
         .tag(3)
       SettingsView()
         .tabItem {
-          Image(systemName: "helm") // circle.lefthalf.fill  helm
+          Image(systemName: "gear") // circle.lefthalf.fill  helm
         }
         .tag(4)
     }

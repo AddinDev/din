@@ -14,22 +14,14 @@ struct Tab1View: View {
   @State private var selected = 0
   
   var body: some View {
-    Group {
-      if presenter.quranLoading {
-        LoadingIndicator()
-      } else if presenter.quranError {
-        ErrorIndicator(message: presenter.quranErrorMessage)
-      } else {
-        content
+    content
+      .transition(.slide)
+      .animation(.spring())
+      .onAppear {
+        if presenter.surahs.count == 0 {
+          presenter.fetchSurahs()
+        }
       }
-    }
-    .transition(.slide)
-    .animation(.spring())
-    .onAppear {
-      if presenter.surahs.count == 0 {
-        presenter.fetchSurahs()
-      }
-    }
   }
 }
 
@@ -37,56 +29,66 @@ extension Tab1View {
   
   var content: some View {
     VStack {
-      HStack {
-        Picker("Title", selection: $selected) {
-          Text("Qur'an").tag(0)
-          Text("Hadits").tag(1)
-        }
-        .pickerStyle(SegmentedPickerStyle())
-        .padding(.horizontal, 25)
-        .padding(.vertical, 7)
+      toggler
+      TabView(selection: $selected) {
+        quran
+//        Text("A")
+          .tag(0)
+        hadits
+          .tag(1)
       }
-      Group {
-        TabView(selection: $selected) {
-          quran
-            .tag(0)
-          hadits
-            .tag(1)
-        }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .indexViewStyle(.page)
+      .tabViewStyle(.page(indexDisplayMode: .never))
+      .indexViewStyle(.page)
+    }
+  }
+  
+  var toggler: some View {
+    HStack {
+      Picker("Title", selection: $selected) {
+        Text("Qur'an").tag(0)
+        Text("Hadits").tag(1)
       }
+      .pickerStyle(SegmentedPickerStyle())
+      .padding(.horizontal, 25)
+      .padding(.vertical, 7)
     }
   }
   
   var quran: some View {
-    List {
-      HStack {
-        Spacer()
-        Menu {
-//          Button("Sort") { print("sorted") }
-          Menu {
-            Button("Place") { print("sorted") }
-            Button("Time") { print("sorted") }
-          } label: {
-            Text("Sort")
-          }
-        } label: {
-          Text("Edit")
-        }
-      }
-      ForEach(presenter.surahs) { surah in
-        Tab1SurahListView(surah: surah)
-          .contextMenu {
-            Button(action: {
-              print("downloaded")
-            }) {
-              Label("Download", systemImage: "cloud")
+//    Group {
+//      if presenter.quranLoading {
+//        LoadingIndicator()
+//      } else if presenter.quranError {
+//        ErrorIndicator(message: presenter.quranErrorMessage)
+//      } else {
+        List {
+          HStack {
+            Spacer()
+            Menu {
+              Menu {
+                Button("Place") { print("sorted") }
+                Button("Time") { print("sorted") }
+              } label: {
+                Text("Sort")
+              }
+            } label: {
+              Text("Edit")
             }
           }
-      }
-    }
-    .listStyle(PlainListStyle())
+          ForEach(presenter.surahs) { surah in
+            Tab1SurahListView(surah: surah)
+              .contextMenu {
+                Button(action: {
+                  print("downloaded")
+                }) {
+                  Label("Download", systemImage: "icloud.and.arrow.down")
+                }
+              }
+          }
+        }
+        .listStyle(PlainListStyle())
+//      }
+//    }
   }
   
   var hadits: some View {
