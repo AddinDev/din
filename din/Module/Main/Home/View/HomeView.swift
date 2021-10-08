@@ -23,6 +23,7 @@ struct HomeView: View {
         prayerTime
         hadits
         requestLocationPermissionButton
+        NetworkConnectivityIndicator()
       }
     }
   }
