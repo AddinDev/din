@@ -11,6 +11,8 @@ struct OnBoardingView: View {
   
   @EnvironmentObject var systemPreference: SystemPreference
   
+  @ObservedObject var adzanManager = AdzanManager()
+  
   let features: [(image: String, title: String, description: String)] = [
     (image: "star.fill", title: "100% Free Without Ads", description: "Just do everything! We won't disturb you."),
     (image: "text.badge.checkmark", title: "Tons of Features", description: "We've got you covered."),
@@ -37,6 +39,7 @@ struct OnBoardingView: View {
       Button(action: {
         showState = false
         systemPreference.doneBoarding()
+        adzanManager.requestPermission()
       }) {
         Text("Get Started")
           .foregroundColor(.white)

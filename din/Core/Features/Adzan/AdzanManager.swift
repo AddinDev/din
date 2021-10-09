@@ -50,7 +50,7 @@ class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("TASKERROR: \(error)")
       } else {
         self.currentPlacemark = placemarks?.first
-        print("TASK: location: \(self.currentPlacemark?.locality ?? "")")
+//        print("TASK: location: \(self.currentPlacemark?.locality ?? "")")
       }
     }
   }

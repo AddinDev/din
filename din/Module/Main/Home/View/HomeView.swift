@@ -22,7 +22,7 @@ struct HomeView: View {
         placeAndDate
         prayerTime
         hadits
-        requestLocationPermissionButton
+//        requestLocationPermissionButton
         news
       }
     }
@@ -137,14 +137,6 @@ extension HomeView {
           }
         }
       }
-    }
-  }
-  
-  var requestLocationPermissionButton: some View {
-    Button(action: {
-      presenter.requestPermission()
-    }) {
-      Text("Req")
     }
   }
   

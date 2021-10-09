@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @ObservedObject var adzanManager = AdzanManager()
   var body: some View {
     List {
       Section(
@@ -16,6 +17,11 @@ struct SettingsView: View {
       ) {
         appVersion
         appResources
+      }
+      Section(header: Text("App Settings"),
+              footer: EmptyView()
+      ) {
+        locationAuthButton
       }
       Section(
         header: Text("Support the Developers"),
@@ -32,6 +38,70 @@ struct SettingsView: View {
 
 extension SettingsView {
   
+  var locationAuthButton: some View {
+    Group {
+      switch adzanManager.authorizationStatus {
+        case .authorized:
+          HStack {
+            Text("Location:")
+            Spacer()
+            Text("Authorized")
+              .foregroundColor(.green)
+          }
+        case .authorizedWhenInUse:
+          HStack {
+            Text("Location:")
+            Spacer()
+            Text("Authorized")
+              .foregroundColor(.green)
+          }
+        case .authorizedAlways:
+          HStack {
+            Text("Location:")
+            Spacer()
+            Text("Authorized")
+              .foregroundColor(.green)
+          }
+        case .denied:
+          Button(action: {
+            adzanManager.requestPermission()
+          }) {
+            HStack {
+              Text("Location:")
+                .foregroundColor(.primary)
+              Spacer()
+              Text("Not Authorized")
+                .foregroundColor(.red)
+            }
+          }
+        case .notDetermined:
+          Button(action: {
+            adzanManager.requestPermission()
+          }) {
+            HStack {
+              Text("Location:")
+                .foregroundColor(.primary)
+              Spacer()
+              Text("Not Authorized")
+                .foregroundColor(.red)
+            }
+          }
+        case .restricted:
+          Button(action: {
+            adzanManager.requestPermission()
+          }) {
+            HStack {
+              Text("Location:")
+                .foregroundColor(.primary)
+              Spacer()
+              Text("Not Authorized")
+                .foregroundColor(.red)
+            }
+          }
+      }
+    }
+  }
+  
   var appVersion: some View {
     HStack {
       Text("App Version")
@@ -41,10 +111,10 @@ extension SettingsView {
   }
   
   var appResources: some View {
-      DisclosureGroup("Resources") {
-        Text("Item 1")
-        Text("Item 2")
-        Text("Item 3")
+    DisclosureGroup("Resources") {
+      Text("Item 1")
+      Text("Item 2")
+      Text("Item 3")
     }
   }
   
