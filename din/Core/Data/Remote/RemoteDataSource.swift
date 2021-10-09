@@ -13,6 +13,7 @@ protocol RemoteDataSourceProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahResponses, Error>
   func fetchNews() -> AnyPublisher<NewsResponses, Error>
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanResponses, Error>
+  func fetchHaditsName() -> AnyPublisher<HaditsNameResponses, Error>
 }
 
 final class RemoteDataSource {
@@ -54,7 +55,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
               completion(.success(value.articles))
             case .failure(let error):
               completion(.failure(error))
-              print("TASKERROR: \(error.localizedDescription)")
+              print("TASKERROR: news: \(error.localizedDescription)")
           }
         }
     }
@@ -72,7 +73,25 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
               completion(.success(value.data))
             case .failure(let error):
               completion(.failure(error))
-              print("TASKERROR: \(error.localizedDescription)")
+              print("TASKERROR: adzan: \(error.localizedDescription)")
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchHaditsName() -> AnyPublisher<HaditsNameResponses, Error> {
+    return Future<HaditsNameResponses, Error> { completion in
+      guard let url = URL(string: Api.haditsBookApi) else { return }
+      AF.request(url)
+        .validate()
+        .responseDecodable(of: HaditsBookResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              completion(.success(value.data))
+            case .failure(let error):
+              completion(.failure(error))
+              print("TASKERROR: hadits: \(error.localizedDescription)")
           }
         }
     }

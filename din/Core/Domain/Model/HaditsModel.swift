@@ -7,8 +7,18 @@
 
 import Foundation
 
+struct HaditsNameModel: Identifiable {
+  let id: String
+  let name: String
+  let available: Int
+}
+
+typealias HaditsNameModels = [HaditsNameModel]
+
+typealias HaditsModels = [HaditsModel]
+
 struct HaditsModel: Identifiable {
-  var id = UUID().uuidString
+  var id: Int
   var text: String
-  var source: String
+  var arabic: String
 }

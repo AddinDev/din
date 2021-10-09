@@ -21,20 +21,21 @@ struct HomeView: View {
       LazyVStack {
         placeAndDate
         prayerTime
-        Section(header: Text("Hadits")) {
         hadits
-          
-        }
         requestLocationPermissionButton
         news
       }
     }
+    .animation(.spring())
     .navigationTitle("")
     .navigationBarHidden(true)
     .onAppear {
 //      DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 //        presenter.fetchAdzan()
 //      }
+      if presenter.hadits.count == 0 {
+//        presenter.fetchHadits()
+      }
       if presenter.news.count == 0 {
         presenter.fetchNews()
       }
@@ -111,12 +112,12 @@ extension HomeView {
       ScrollView(.horizontal, showsIndicators: false) {
         ScrollViewReader { value in
         HStack {
-          ForEach(0..<3) { i in
-            HomeHaditsListView(hadits: HaditsModel(text: "aa aaaa aaaaaaa aaaaa aaaa aaaaa aaaa aaaa aaa aaaaaaa aaaaa", source: "HR UDIN"))
-              .id(i)
+          ForEach(presenter.hadits) { hadits in
+            HomeHaditsListView(hadits: hadits)
+              .id(hadits.id)
           }
         }
-        .onAppear { withAnimation(.linear) { value.scrollTo(1, anchor: .center) } }
+        .onAppear { withAnimation(.linear) { value.scrollTo(2, anchor: .center) } }
       }
       }
     }

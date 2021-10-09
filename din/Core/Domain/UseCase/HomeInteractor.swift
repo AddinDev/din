@@ -12,6 +12,7 @@ protocol HomeUseCase {
   func fetchSurahs() -> AnyPublisher<SurahModels, Error>
   func fetchNews() -> AnyPublisher<NewsModels, Error>
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error>
+//  func fetchHadits() -> AnyPublisher<HaditsModels, Error>
 }
 
 class HomeInteractor {
@@ -37,5 +38,9 @@ extension HomeInteractor: HomeUseCase {
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error> {
     self.repository.fetchAdzan(lat: lat, long: long)
   }
+  
+//  func fetchHadits() -> AnyPublisher<HaditsModels, Error> {
+//    self.repository.fet()
+//  }
   
 }

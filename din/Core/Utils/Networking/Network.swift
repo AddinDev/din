@@ -33,7 +33,7 @@ class Network: ObservableObject {
 }
 
 struct NetworkConnectivityIndicator: View {
-  @StateObject var network = Network()
+  @ObservedObject var network = Network()
   var body: some View {
     if !network.connected {
       Text("we're not connected to the internet.")

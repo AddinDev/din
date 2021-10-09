@@ -20,14 +20,17 @@ struct ContentView: View {
   
   var body: some View {
     
-    NavigationView {
       TabView(selection: $viewSelected) {
+        NavigationView {
         HomeView(presenter: homePresenter)
+        }
           .tabItem {
             Image(systemName: "circle.bottomthird.split")
           }
           .tag(0)
+        NavigationView {
         Tab1View(presenter: tab1Presenter)
+        }
           .tabItem {
             Image(systemName: "circlebadge.2.fill")
           }
@@ -48,7 +51,6 @@ struct ContentView: View {
           }
           .tag(4)
       }
-    }
     .onAppear {
       if systemPreference.didBoarding == false {
         isShowBoardingScreen = true

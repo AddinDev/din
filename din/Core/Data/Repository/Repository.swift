@@ -12,6 +12,7 @@ protocol RepositoryProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error>
   func fetchNews() -> AnyPublisher<NewsModels, Error>
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error>
+  func fetchHaditsBook() -> AnyPublisher<HaditsNameModels, Error>
 }
 
 final class Repository {
@@ -49,6 +50,12 @@ extension Repository: RepositoryProtocol {
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error> {
     self.remote.fetchAdzan(lat: lat, long: long)
       .map { AdzanMapper.responsesToModels($0) }
+      .eraseToAnyPublisher()
+  }
+  
+  func fetchHaditsBook() -> AnyPublisher<HaditsNameModels, Error> {
+    self.remote.fetchHaditsName()
+      .map { HaditsMapper.bookResponsesToModels($0) }
       .eraseToAnyPublisher()
   }
 

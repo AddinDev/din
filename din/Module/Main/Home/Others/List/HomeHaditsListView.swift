@@ -14,7 +14,7 @@ struct HomeHaditsListView: View {
       Text("\"\(hadits.text)\"")
         .fontWeight(.medium)
         .lineLimit(3)
-      Text(hadits.source)
+      Text("a")
         .font(.callout)
         .foregroundColor(.gray)
     }

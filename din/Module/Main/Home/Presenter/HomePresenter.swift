@@ -21,6 +21,10 @@ class HomePresenter: AdzanManager {
   @Published var isError = false
   @Published var errorMessage = ""
   
+  @Published var haditsLoading = false
+  @Published var haditsError = false
+  @Published var haditsErrorMessage = ""
+  
   @Published var newsLoading = false
   @Published var newsError = false
   @Published var newsErrorMessage = ""
@@ -35,8 +39,18 @@ class HomePresenter: AdzanManager {
   
   @Published var news: NewsModels = []
   
+  @Published var hadits: HaditsModels = []
+  
   init(useCase: HomeUseCase) {
     self.useCase = useCase
+  }
+  
+  override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    if adzan.count == 0 {
+    lastSeenLocation = locations.first
+    fetchCountryAndCity(for: locations.first)
+    fetchAdzan()
+    }
   }
   
   func fetchNews() {
@@ -59,16 +73,32 @@ class HomePresenter: AdzanManager {
       .store(in: &cancellables)
   }
   
-  override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    lastSeenLocation = locations.first
-    fetchCountryAndCity(for: locations.first)
-    fetchAdzan()
-  }
+//  func fetchHadits() {
+//    self.haditsLoading = true
+//    self.haditsError = false
+//    self.useCase.fetchHadits()
+//      .receive(on: RunLoop.main)
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            self.haditsLoading = false
+//          case .failure(let error):
+//            self.haditsErrorMessage = error.localizedDescription
+//            self.haditsError = true
+//            self.haditsLoading = false
+//        }
+//      } receiveValue: { hadits in
+//        self.hadits = hadits
+// //        print("hadits: \(self.hadits)")
+//      }
+//      .store(in: &cancellables)
+//  }
   
   func fetchAdzan() {
     self.adzanLoading = true
     self.adzanError = false
-    self.useCase.fetchAdzan(lat: Float(lastSeenLocation?.coordinate.latitude ?? 0), long: Float(lastSeenLocation?.coordinate.longitude ?? 0))
+    self.useCase.fetchAdzan(lat: Float(lastSeenLocation?.coordinate.latitude ?? 0),
+                            long: Float(lastSeenLocation?.coordinate.longitude ?? 0))
       .receive(on: RunLoop.main)
       .sink { completion in
         switch completion {
@@ -95,10 +125,6 @@ class HomePresenter: AdzanManager {
       .store(in: &cancellables)
   }
   
-  func newsDetailLinkBuilder<Content: View>(for news: NewsModel, @ViewBuilder content: () -> Content ) -> some View {
-    NavigationLink(destination: router.makeDetailView(news: news)) { content() }
-  }
-  
   private func splitMinuteAndHour(_ adzan: String) -> String {
     let time = adzan
     let r = time.index(time.startIndex, offsetBy: 0)..<time.index(time.endIndex, offsetBy: -9)
@@ -119,6 +145,10 @@ class HomePresenter: AdzanManager {
     let stringDate = timeFormatter.string(from: time)
     let dayIndex = Int(stringDate) ?? 1 - 1
     return dayIndex
+  }
+  
+  func newsDetailLinkBuilder<Content: View>(for news: NewsModel, @ViewBuilder content: () -> Content ) -> some View {
+    NavigationLink(destination: router.makeDetailView(news: news)) { content() }
   }
   
 }

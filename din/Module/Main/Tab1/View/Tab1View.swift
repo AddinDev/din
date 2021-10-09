@@ -17,13 +17,16 @@ struct Tab1View: View {
     content
       .transition(.slide)
       .animation(.spring())
-      .navigationTitle("")
-      .navigationBarHidden(true)
       .onAppear {
         if presenter.surahs.count == 0 {
           presenter.fetchSurahs()
         }
+        if presenter.haditsName.count == 0 {
+          presenter.fetchHadits()
+        }
       }
+      .navigationTitle("")
+      .navigationBarHidden(true)
   }
 }
 
@@ -34,7 +37,6 @@ extension Tab1View {
       toggler
       TabView(selection: $selected) {
         quran
-//        Text("A")
           .tag(0)
         hadits
           .tag(1)
@@ -57,47 +59,68 @@ extension Tab1View {
   }
   
   var quran: some View {
-//    Group {
-//      if presenter.quranLoading {
-//        LoadingIndicator()
-//      } else if presenter.quranError {
-//        ErrorIndicator(message: presenter.quranErrorMessage)
-//      } else {
-        List {
-          HStack {
-            Spacer()
-            Menu {
-              Menu {
-                Button("Place") { print("sorted") }
-                Button("Time") { print("sorted") }
-              } label: {
-                Text("Sort")
-              }
-            } label: {
-              Text("Edit")
+    //    Group {
+    //      if presenter.quranLoading {
+    //        LoadingIndicator()
+    //      } else if presenter.quranError {
+    //        ErrorIndicator(message: presenter.quranErrorMessage)
+    //      } else {
+    List {
+      HStack {
+        Spacer()
+        Menu {
+          Menu {
+            Button("Place") { print("sorted") }
+            Button("Time") { print("sorted") }
+          } label: {
+            Text("Sort")
+          }
+        } label: {
+          Text("Edit")
+        }
+      }
+      ForEach(presenter.surahs) { surah in
+        Tab1SurahListView(surah: surah)
+          .contextMenu {
+            Button(action: {
+              print("downloaded")
+            }) {
+              Label("Download", systemImage: "icloud.and.arrow.down")
             }
           }
-          ForEach(presenter.surahs) { surah in
-            Tab1SurahListView(surah: surah)
-              .contextMenu {
-                Button(action: {
-                  print("downloaded")
-                }) {
-                  Label("Download", systemImage: "icloud.and.arrow.down")
-                }
-              }
-          }
-        }
-        .listStyle(PlainListStyle())
-//      }
-//    }
+      }
+    }
+    .listStyle(PlainListStyle())
+    //      }
+    //    }
   }
   
   var hadits: some View {
-    VStack {
-      Text("Hadits")
-      Spacer()
+    List {
+      HStack {
+        Spacer()
+        Menu {
+          Menu {
+            Button("Place") { print("sorted") }
+            Button("Time") { print("sorted") }
+          } label: {
+            Text("Sort")
+          }
+        } label: {
+          Text("Edit")
+        }
+      }
+      ForEach(presenter.haditsName) { hadits in
+        NavigationLink(destination: Text("hadits.id")) {
+          HStack {
+            Text(hadits.name)
+            Spacer()
+            Text(String(hadits.available))
+          }
+        }
+      }
     }
+    .listStyle(PlainListStyle())
   }
   
 }

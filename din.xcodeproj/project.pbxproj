@@ -21,6 +21,8 @@
 		B835C16E270F2EA6009CD9B6 /* Tab1Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C16D270F2EA6009CD9B6 /* Tab1Presenter.swift */; };
 		B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */; };
 		B835C173270F350A009CD9B6 /* Tab1SurahListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835C172270F350A009CD9B6 /* Tab1SurahListView.swift */; };
+		B83AA9E227116465003BCFCA /* HaditsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83AA9E127116465003BCFCA /* HaditsResponse.swift */; };
+		B83AA9E42711654D003BCFCA /* HaditsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83AA9E32711654D003BCFCA /* HaditsMapper.swift */; };
 		B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DBD270FE86700A93698 /* IslamicNewsResponse.swift */; };
 		B84B0DC0270FEF7D00A93698 /* NewsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DBF270FEF7D00A93698 /* NewsMapper.swift */; };
 		B84B0DC2270FEFA100A93698 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC1270FEFA100A93698 /* NewsModel.swift */; };
@@ -89,6 +91,8 @@
 		B835C16D270F2EA6009CD9B6 /* Tab1Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Presenter.swift; sourceTree = "<group>"; };
 		B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Interactor.swift; sourceTree = "<group>"; };
 		B835C172270F350A009CD9B6 /* Tab1SurahListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1SurahListView.swift; sourceTree = "<group>"; };
+		B83AA9E127116465003BCFCA /* HaditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsResponse.swift; sourceTree = "<group>"; };
+		B83AA9E32711654D003BCFCA /* HaditsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsMapper.swift; sourceTree = "<group>"; };
 		B84B0DBD270FE86700A93698 /* IslamicNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslamicNewsResponse.swift; sourceTree = "<group>"; };
 		B84B0DBF270FEF7D00A93698 /* NewsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMapper.swift; sourceTree = "<group>"; };
 		B84B0DC1270FEFA100A93698 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				B8328128270ED91100E18875 /* SurahMapper.swift */,
 				B84B0DBF270FEF7D00A93698 /* NewsMapper.swift */,
 				B82004F42711396300541C45 /* AdzanMapper.swift */,
+				B83AA9E32711654D003BCFCA /* HaditsMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				B8328120270ED5DE00E18875 /* QuranResponse.swift */,
 				B84B0DBD270FE86700A93698 /* IslamicNewsResponse.swift */,
 				B82004F02711379600541C45 /* PrayTimeResponse.swift */,
+				B83AA9E127116465003BCFCA /* HaditsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -772,6 +778,8 @@
 				B8328123270ED6BC00E18875 /* Api.swift in Sources */,
 				B8328121270ED5DE00E18875 /* QuranResponse.swift in Sources */,
 				B8EBFAAA270ADAFC008555A7 /* RemoteDataSource.swift in Sources */,
+				B83AA9E42711654D003BCFCA /* HaditsMapper.swift in Sources */,
+				B83AA9E227116465003BCFCA /* HaditsResponse.swift in Sources */,
 				B84B0DC2270FEFA100A93698 /* NewsModel.swift in Sources */,
 				B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */,
 				B835C173270F350A009CD9B6 /* Tab1SurahListView.swift in Sources */,

@@ -24,6 +24,8 @@ class Tab1Presenter: ObservableObject {
   
   @Published var surahs: SurahModels = []
   
+  @Published var haditsName: HaditsNameModels = []
+  
   init(useCase: Tab1UseCase) {
     self.useCase = useCase
   }
@@ -49,4 +51,24 @@ class Tab1Presenter: ObservableObject {
       .store(in: &cancellables)
   }
   
+  func fetchHadits() {
+    self.haditsLoading = true
+    self.haditsError = false
+    self.useCase.fetchHaditsBook()
+      .receive(on: RunLoop.main)
+      .sink { completion in
+        switch completion {
+          case .finished:
+            self.haditsLoading = false
+          case .failure(let error):
+            self.haditsErrorMessage = error.localizedDescription
+            self.haditsError = true
+            self.haditsLoading = false
+        }
+      } receiveValue: { haditsName in
+        self.haditsName = haditsName
+      }
+      .store(in: &cancellables)
+  }
+
 }
