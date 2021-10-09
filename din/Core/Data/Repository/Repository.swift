@@ -11,6 +11,7 @@ import Combine
 protocol RepositoryProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahModels, Error>
   func fetchNews() -> AnyPublisher<NewsModels, Error>
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error>
 }
 
 final class Repository {
@@ -42,6 +43,12 @@ extension Repository: RepositoryProtocol {
   func fetchNews() -> AnyPublisher<NewsModels, Error> {
     self.remote.fetchNews()
       .map { NewsMapper.responsesToModels($0) }
+      .eraseToAnyPublisher()
+  }
+  
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error> {
+    self.remote.fetchAdzan(lat: lat, long: long)
+      .map { AdzanMapper.responsesToModels($0) }
       .eraseToAnyPublisher()
   }
 

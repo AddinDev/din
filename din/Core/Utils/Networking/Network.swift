@@ -35,8 +35,14 @@ class Network: ObservableObject {
 struct NetworkConnectivityIndicator: View {
   @StateObject var network = Network()
   var body: some View {
-    Text("We're \(network.connected ? "connected" : "not connected") to the Internet.")
-      .foregroundColor(network.connected ? .green : .red)
-      .padding()
+    if !network.connected {
+      Text("we're not connected to the internet.")
+        .foregroundColor(.white)
+        .frame(width: .infinity)
+        .background(Color.red)
+    }
+//    Text("We're \(network.connected ? "connected" : "not connected") to the Internet.")
+//      .foregroundColor(network.connected ? .green : .red)
+//      .padding()
   }
 }

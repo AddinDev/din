@@ -11,6 +11,7 @@ import Combine
 protocol HomeUseCase {
   func fetchSurahs() -> AnyPublisher<SurahModels, Error>
   func fetchNews() -> AnyPublisher<NewsModels, Error>
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error>
 }
 
 class HomeInteractor {
@@ -31,6 +32,10 @@ extension HomeInteractor: HomeUseCase {
   
   func fetchNews() -> AnyPublisher<NewsModels, Error> {
     self.repository.fetchNews()
+  }
+  
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error> {
+    self.repository.fetchAdzan(lat: lat, long: long)
   }
   
 }

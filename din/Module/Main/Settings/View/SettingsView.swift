@@ -25,6 +25,8 @@ struct SettingsView: View {
         donateButton
       }
     }
+    .navigationTitle("")
+    .navigationBarHidden(true)
   }
 }
 

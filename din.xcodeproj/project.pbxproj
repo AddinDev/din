@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F02711379600541C45 /* PrayTimeResponse.swift */; };
+		B82004F3271138B300541C45 /* AdzanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F2271138B300541C45 /* AdzanModel.swift */; };
+		B82004F52711396300541C45 /* AdzanMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F42711396300541C45 /* AdzanMapper.swift */; };
 		B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8313DEE270D335800EBE94C /* HomePresenter.swift */; };
 		B832811D270ED0BA00E18875 /* HomeHaditsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832811C270ED0BA00E18875 /* HomeHaditsListView.swift */; };
 		B832811F270ED0F800E18875 /* HaditsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832811E270ED0F800E18875 /* HaditsModel.swift */; };
@@ -71,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B82004F02711379600541C45 /* PrayTimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayTimeResponse.swift; sourceTree = "<group>"; };
+		B82004F2271138B300541C45 /* AdzanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanModel.swift; sourceTree = "<group>"; };
+		B82004F42711396300541C45 /* AdzanMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanMapper.swift; sourceTree = "<group>"; };
+		B82004F627113DE000541C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B8313DEE270D335800EBE94C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B832811C270ED0BA00E18875 /* HomeHaditsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHaditsListView.swift; sourceTree = "<group>"; };
 		B832811E270ED0F800E18875 /* HaditsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsModel.swift; sourceTree = "<group>"; };
@@ -167,6 +174,7 @@
 			children = (
 				B8328128270ED91100E18875 /* SurahMapper.swift */,
 				B84B0DBF270FEF7D00A93698 /* NewsMapper.swift */,
+				B82004F42711396300541C45 /* AdzanMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
+				B82004F627113DE000541C45 /* Info.plist */,
 				B8EBFA97270AD785008555A7 /* App */,
 				B8EBFA9A270AD7E7008555A7 /* Core */,
 				B8EBFA99270AD7E3008555A7 /* Module */,
@@ -462,6 +471,7 @@
 				B832811E270ED0F800E18875 /* HaditsModel.swift */,
 				B8328125270ED88500E18875 /* SurahModel.swift */,
 				B84B0DC1270FEFA100A93698 /* NewsModel.swift */,
+				B82004F2271138B300541C45 /* AdzanModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -507,6 +517,7 @@
 			children = (
 				B8328120270ED5DE00E18875 /* QuranResponse.swift */,
 				B84B0DBD270FE86700A93698 /* IslamicNewsResponse.swift */,
+				B82004F02711379600541C45 /* PrayTimeResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -765,6 +776,7 @@
 				B8EBFA6D270AD71E008555A7 /* ContentView.swift in Sources */,
 				B835C173270F350A009CD9B6 /* Tab1SurahListView.swift in Sources */,
 				B8EBFA6B270AD71E008555A7 /* dinApp.swift in Sources */,
+				B82004F52711396300541C45 /* AdzanMapper.swift in Sources */,
 				B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */,
 				B835C16E270F2EA6009CD9B6 /* Tab1Presenter.swift in Sources */,
 				B835C16C270F2E98009CD9B6 /* Tab1View.swift in Sources */,
@@ -791,6 +803,8 @@
 				B89F0722270E9BA3004B7557 /* SettingsView.swift in Sources */,
 				B84B0DC4270FF34700A93698 /* Network.swift in Sources */,
 				B84B0DC0270FEF7D00A93698 /* NewsMapper.swift in Sources */,
+				B82004F3271138B300541C45 /* AdzanModel.swift in Sources */,
+				B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +968,7 @@
 				DEVELOPMENT_TEAM = SWR83G7DDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = din/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "pls allow (not hacker)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -987,6 +1002,7 @@
 				DEVELOPMENT_TEAM = SWR83G7DDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = din/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "pls allow (not hacker)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

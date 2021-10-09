@@ -17,6 +17,8 @@ struct Tab1View: View {
     content
       .transition(.slide)
       .animation(.spring())
+      .navigationTitle("")
+      .navigationBarHidden(true)
       .onAppear {
         if presenter.surahs.count == 0 {
           presenter.fetchSurahs()

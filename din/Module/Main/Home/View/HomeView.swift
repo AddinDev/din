@@ -26,11 +26,15 @@ struct HomeView: View {
           
         }
         requestLocationPermissionButton
-        NetworkConnectivityIndicator()
         news
       }
     }
+    .navigationTitle("")
+    .navigationBarHidden(true)
     .onAppear {
+//      DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+//        presenter.fetchAdzan()
+//      }
       if presenter.news.count == 0 {
         presenter.fetchNews()
       }
@@ -65,7 +69,7 @@ extension HomeView {
   var prayerTime: some View {
     HStack {
       VStack(alignment: .leading, spacing: 0) {
-        Text(prayerTimes[prayerNow])
+        Text(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow])
           .font(.system(size: 50))
           .fontWeight(.medium)
         Text(prayerNames[prayerNow])
@@ -75,7 +79,7 @@ extension HomeView {
       }
       HStack {
         VStack(alignment: .trailing) {
-          ForEach(prayerTimes.filter { $0 != prayerTimes[prayerNow] }, id: \.self) { time in
+          ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
             Text(time)
               .fontWeight(.medium)
           }

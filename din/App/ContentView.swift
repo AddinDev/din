@@ -19,12 +19,10 @@ struct ContentView: View {
   @State private var viewSelected = 0
   
   var body: some View {
+    
+    NavigationView {
       TabView(selection: $viewSelected) {
-        NavigationView {
         HomeView(presenter: homePresenter)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-        }
           .tabItem {
             Image(systemName: "circle.bottomthird.split")
           }
@@ -50,17 +48,19 @@ struct ContentView: View {
           }
           .tag(4)
       }
-      .onAppear {
-        if systemPreference.didBoarding == false {
-          isShowBoardingScreen = true
-        }
+    }
+    .onAppear {
+      if systemPreference.didBoarding == false {
+        isShowBoardingScreen = true
       }
-      .sheet(isPresented: $isShowBoardingScreen) {
-        systemPreference.doneBoarding()
-      } content: {
-        OnBoardingView(showState: $isShowBoardingScreen)
-          .environmentObject(systemPreference)
-      }
+    }
+    .sheet(isPresented: $isShowBoardingScreen) {
+      systemPreference.doneBoarding()
+    } content: {
+      OnBoardingView(showState: $isShowBoardingScreen)
+        .environmentObject(systemPreference)
+    }
+    
   }
 }
 

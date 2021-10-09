@@ -12,6 +12,7 @@ import Alamofire
 protocol RemoteDataSourceProtocol {
   func fetchListofQuranChapters() -> AnyPublisher<SurahResponses, Error>
   func fetchNews() -> AnyPublisher<NewsResponses, Error>
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanResponses, Error>
 }
 
 final class RemoteDataSource {
@@ -33,7 +34,6 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           switch response.result {
             case .success(let value):
               completion(.success(value.chapters))
-              print("TASK: got some Surahs")
             case .failure(let error):
               completion(.failure(error))
               print("TASKERROR: \(error.localizedDescription)")
@@ -54,6 +54,25 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
               completion(.success(value.articles))
             case .failure(let error):
               completion(.failure(error))
+              print("TASKERROR: \(error.localizedDescription)")
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanResponses, Error> {
+    return Future<AdzanResponses, Error> { completion in
+      guard let url = URL(string: Api.adzanApi(lat: lat, long: long)) else { return }
+      AF.request(url)
+        .validate()
+        .responseDecodable(of: PrayTimeResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              completion(.success(value.data))
+            case .failure(let error):
+              completion(.failure(error))
+              print("TASKERROR: \(error.localizedDescription)")
           }
         }
     }

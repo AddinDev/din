@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import CoreLocation
 
 class HomePresenter: AdzanManager {
   
@@ -23,6 +24,12 @@ class HomePresenter: AdzanManager {
   @Published var newsLoading = false
   @Published var newsError = false
   @Published var newsErrorMessage = ""
+  
+  @Published var adzanLoading = false
+  @Published var adzanError = false
+  @Published var adzanErrorMessage = ""
+  
+  @Published var adzan: [String] = []
   
   @Published var surahs: SurahModels = []
   
@@ -52,8 +59,66 @@ class HomePresenter: AdzanManager {
       .store(in: &cancellables)
   }
   
+  override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    lastSeenLocation = locations.first
+    fetchCountryAndCity(for: locations.first)
+    fetchAdzan()
+  }
+  
+  func fetchAdzan() {
+    self.adzanLoading = true
+    self.adzanError = false
+    self.useCase.fetchAdzan(lat: Float(lastSeenLocation?.coordinate.latitude ?? 0), long: Float(lastSeenLocation?.coordinate.longitude ?? 0))
+      .receive(on: RunLoop.main)
+      .sink { completion in
+        switch completion {
+          case .finished:
+            self.adzanLoading = false
+          case .failure(let error):
+            self.adzanErrorMessage = error.localizedDescription
+            self.adzanError = true
+            self.adzanLoading = false
+        }
+      } receiveValue: { adzan in
+        let todayAdzan = adzan[self.dayIndex()]
+        let newAdzan = AdzanModel(imsak: self.splitMinuteAndHour(todayAdzan.imsak),
+                                  subuh: self.splitMinuteAndHour(todayAdzan.subuh),
+                                  terbit: self.splitMinuteAndHour(todayAdzan.terbit),
+                                  dzuhur: self.splitMinuteAndHour(todayAdzan.dzuhur),
+                                  ashar: self.splitMinuteAndHour(todayAdzan.ashar),
+                                  magrib: self.splitMinuteAndHour(todayAdzan.magrib),
+                                  terbenam: self.splitMinuteAndHour(todayAdzan.terbenam),
+                                  isya: self.splitMinuteAndHour(todayAdzan.isya))
+        self.adzan = [newAdzan.subuh, newAdzan.dzuhur, newAdzan.ashar, newAdzan.magrib, newAdzan.isya]
+        print("adzan: \(self.adzan)")
+      }
+      .store(in: &cancellables)
+  }
+  
   func newsDetailLinkBuilder<Content: View>(for news: NewsModel, @ViewBuilder content: () -> Content ) -> some View {
     NavigationLink(destination: router.makeDetailView(news: news)) { content() }
+  }
+  
+  private func splitMinuteAndHour(_ adzan: String) -> String {
+    let time = adzan
+    let r = time.index(time.startIndex, offsetBy: 0)..<time.index(time.endIndex, offsetBy: -9)
+    let substring = String(time[r])
+    let hour = substring.count == 1 ? ("0\(substring)") : substring
+
+    let b = time.index(time.startIndex, offsetBy: 3)..<time.index(time.endIndex, offsetBy: -6)
+    let c = time[b]
+    let minute = c.count == 1 ? ("0\(c)") : c
+    
+    return "\(hour) \(minute)"
+  }
+  
+  private func dayIndex() -> Int {
+    let time = Date()
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "EEEE"
+    let stringDate = timeFormatter.string(from: time)
+    let dayIndex = Int(stringDate) ?? 1 - 1
+    return dayIndex
   }
   
 }
