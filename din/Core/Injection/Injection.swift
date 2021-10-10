@@ -29,4 +29,8 @@ final class Injection {
     return NewsDetailInteractor(repository: provideRepository())
   }
   
+  func provideHaditsDetail() -> HaditsDetailUseCase {
+    return HaditsDetailInteractor(repository: provideRepository())
+  }
+  
 }

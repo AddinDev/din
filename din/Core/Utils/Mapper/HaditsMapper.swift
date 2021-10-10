@@ -15,4 +15,10 @@ class HaditsMapper {
     }
   }
   
+  static func responsesToModels( _ responses: HaditsResponses) -> HaditsModels {
+    return responses.map { hadits in
+      return HaditsModel(id: hadits.number, text: hadits.id, arabic: hadits.arab)
+    }
+  }
+  
 }

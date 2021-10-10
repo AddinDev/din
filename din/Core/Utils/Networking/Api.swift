@@ -15,6 +15,10 @@ struct Api {
   
   static let haditsBookApi = "https://api.hadith.sutanlab.id/books"
   
+  static func haditsApi(name: String, _ first: Int, _ end: Int) -> String {
+    return "https://api.hadith.sutanlab.id/books/\(name)?range=\(first)-\(end)"
+  }
+  
   static func adzanApi(lat: Float, long: Float) -> String {
     return "http://api.aladhan.com/v1/calendar?latitude=\(lat)&longitude=\(long)&method=2"
   }
@@ -23,10 +27,4 @@ struct Api {
 //    return "http://api.carihadis.com/?kitab=\(type.rawValue)&id=\(id)"
 //  }
   
-}
-
-enum HaditsType: String {
-  case shahih_bukhori = "Shahih_Bukhari"
-  case arbain1 = "Arbain_Nawawi_I"
-  case arbain2 = "Arbain_Nawawi_II"
 }

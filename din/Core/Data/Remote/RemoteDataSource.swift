@@ -14,6 +14,7 @@ protocol RemoteDataSourceProtocol {
   func fetchNews() -> AnyPublisher<NewsResponses, Error>
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanResponses, Error>
   func fetchHaditsName() -> AnyPublisher<HaditsNameResponses, Error>
+  func fetchHadits(_ name: String, _ first: Int, _ end: Int) -> AnyPublisher<HaditsResponses, Error>
 }
 
 final class RemoteDataSource {
@@ -89,6 +90,24 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           switch response.result {
             case .success(let value):
               completion(.success(value.data))
+            case .failure(let error):
+              completion(.failure(error))
+              print("TASKERROR: hadits: \(error.localizedDescription)")
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchHadits(_ name: String, _ first: Int, _ end: Int) -> AnyPublisher<HaditsResponses, Error> {
+    return Future<HaditsResponses, Error> { completion in
+      guard let url = URL(string: Api.haditsApi(name: name, first, end)) else { return }
+      AF.request(url)
+        .validate()
+        .responseDecodable(of: HaditsesResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              completion(.success(value.data.hadiths))
             case .failure(let error):
               completion(.failure(error))
               print("TASKERROR: hadits: \(error.localizedDescription)")

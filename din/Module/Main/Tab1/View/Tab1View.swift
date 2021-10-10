@@ -22,7 +22,7 @@ struct Tab1View: View {
           presenter.fetchSurahs()
         }
         if presenter.haditsName.count == 0 {
-          presenter.fetchHadits()
+          presenter.fetchHaditsBook()
         }
       }
       .navigationTitle("")
@@ -97,21 +97,8 @@ extension Tab1View {
   
   var hadits: some View {
     List {
-      HStack {
-        Spacer()
-        Menu {
-          Menu {
-            Button("Place") { print("sorted") }
-            Button("Time") { print("sorted") }
-          } label: {
-            Text("Sort")
-          }
-        } label: {
-          Text("Edit")
-        }
-      }
       ForEach(presenter.haditsName) { hadits in
-        NavigationLink(destination: Text("hadits.id")) {
+        presenter.haditsDetailLinkBuilder(hadits, 1, 5) {
           HStack {
             Text(hadits.name)
             Spacer()

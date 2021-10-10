@@ -98,6 +98,18 @@ extension SettingsView {
                 .foregroundColor(.red)
             }
           }
+        default:
+          Button(action: {
+            adzanManager.requestPermission()
+          }) {
+            HStack {
+              Text("Location:")
+                .foregroundColor(.primary)
+              Spacer()
+              Text("Not Authorized")
+                .foregroundColor(.red)
+            }
+          }
       }
     }
   }

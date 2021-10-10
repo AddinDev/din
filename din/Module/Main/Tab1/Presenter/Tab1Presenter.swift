@@ -10,6 +10,8 @@ import Combine
 
 class Tab1Presenter: ObservableObject {
   
+  private let router = Tab1Router()
+  
   private let useCase: Tab1UseCase
   
   private var cancellables: Set<AnyCancellable> = []
@@ -51,7 +53,7 @@ class Tab1Presenter: ObservableObject {
       .store(in: &cancellables)
   }
   
-  func fetchHadits() {
+  func fetchHaditsBook() {
     self.haditsLoading = true
     self.haditsError = false
     self.useCase.fetchHaditsBook()
@@ -69,6 +71,10 @@ class Tab1Presenter: ObservableObject {
         self.haditsName = haditsName
       }
       .store(in: &cancellables)
+  }
+  
+  func haditsDetailLinkBuilder<Content: View>(_ bookName: HaditsNameModel, _ first: Int, _ end: Int, @ViewBuilder content: () -> Content ) -> some View {
+    NavigationLink(destination: router.makeDetailView(bookName, first, end)) { content() }
   }
 
 }

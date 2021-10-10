@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B803DA492712775200303ABC /* HaditsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA482712775200303ABC /* HaditsDetailView.swift */; };
+		B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */; };
+		B803DA4D2712790400303ABC /* HaditsDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */; };
+		B803DA4F2712798700303ABC /* Tab1Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4E2712798700303ABC /* Tab1Router.swift */; };
 		B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F02711379600541C45 /* PrayTimeResponse.swift */; };
 		B82004F3271138B300541C45 /* AdzanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F2271138B300541C45 /* AdzanModel.swift */; };
 		B82004F52711396300541C45 /* AdzanMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F42711396300541C45 /* AdzanMapper.swift */; };
@@ -76,6 +80,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B803DA482712775200303ABC /* HaditsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsDetailView.swift; sourceTree = "<group>"; };
+		B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HaditsDetailPresenter.swift; path = din/Module/Main/Detail/Hadits/View/HaditsDetailPresenter.swift; sourceTree = SOURCE_ROOT; };
+		B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsDetailInteractor.swift; sourceTree = "<group>"; };
+		B803DA4E2712798700303ABC /* Tab1Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Router.swift; sourceTree = "<group>"; };
 		B82004F02711379600541C45 /* PrayTimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayTimeResponse.swift; sourceTree = "<group>"; };
 		B82004F2271138B300541C45 /* AdzanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanModel.swift; sourceTree = "<group>"; };
 		B82004F42711396300541C45 /* AdzanMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanMapper.swift; sourceTree = "<group>"; };
@@ -156,6 +164,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B803DA432712772500303ABC /* Hadits */ = {
+			isa = PBXGroup;
+			children = (
+				B803DA442712772900303ABC /* View */,
+				B803DA452712772E00303ABC /* Presenter */,
+			);
+			path = Hadits;
+			sourceTree = "<group>";
+		};
+		B803DA442712772900303ABC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B803DA482712775200303ABC /* HaditsDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B803DA452712772E00303ABC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		B832811B270ED09E00E18875 /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +231,7 @@
 		B835C168270F2E86009CD9B6 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				B803DA4E2712798700303ABC /* Tab1Router.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -246,6 +280,7 @@
 		B89A6A83271076D40008E208 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B803DA432712772500303ABC /* Hadits */,
 				B89A6A84271076DF0008E208 /* News */,
 			);
 			path = Detail;
@@ -487,6 +522,7 @@
 				B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */,
 				B835C16F270F2F64009CD9B6 /* Tab1Interactor.swift */,
 				B89A6A80271076000008E208 /* NewsDetailInteractor.swift */,
+				B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -790,10 +826,12 @@
 				B835C16C270F2E98009CD9B6 /* Tab1View.swift in Sources */,
 				B8EBFAAE270ADB1E008555A7 /* Injection.swift in Sources */,
 				B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */,
+				B803DA4D2712790400303ABC /* HaditsDetailInteractor.swift in Sources */,
 				B8328129270ED91100E18875 /* SurahMapper.swift in Sources */,
 				B8EBFAA6270ADACE008555A7 /* Repository.swift in Sources */,
 				B89A6A81271076000008E208 /* NewsDetailInteractor.swift in Sources */,
 				B8EBFAAC270ADB07008555A7 /* LocaleDataSource.swift in Sources */,
+				B803DA492712775200303ABC /* HaditsDetailView.swift in Sources */,
 				B89F0726270EAC83004B7557 /* AdzanManager.swift in Sources */,
 				B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */,
 				B832811F270ED0F800E18875 /* HaditsModel.swift in Sources */,
@@ -801,9 +839,11 @@
 				B89A6A7F271075840008E208 /* HomeRouter.swift in Sources */,
 				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
 				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
+				B803DA4F2712798700303ABC /* Tab1Router.swift in Sources */,
 				B89A6A8C271077850008E208 /* NewsDetailPresenter.swift in Sources */,
 				B8328126270ED88500E18875 /* SurahModel.swift in Sources */,
 				B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */,
+				B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */,
 				B89490802710213500705139 /* HomeNewsListView.swift in Sources */,
 				B89A6A8A2710773E0008E208 /* NewsDetailView.swift in Sources */,
 				B835C170270F2F64009CD9B6 /* Tab1Interactor.swift in Sources */,
