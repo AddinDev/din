@@ -9,10 +9,16 @@ import SwiftUI
 
 struct Tab1Router {
   
-  func makeDetailView(_ haditsBook: HaditsNameModel, _ first: Int, _ end: Int) -> some View {
+  func makeHaditsDetailView(_ haditsBook: HaditsNameModel, _ first: Int, _ end: Int) -> some View {
     let useCase = Injection.init().provideHaditsDetail()
     let presenter = HaditsDetailPresenter(useCase: useCase, haditsBook, first, end)
     return HaditsDetailView(presenter: presenter)
+  }
+  
+  func makeQuranDetailView(_ surah: SurahModel) -> some View {
+    let useCase = Injection.init().provideQuranDetail()
+    let presenter = QuranDetailPresenter(useCase: useCase, surah: surah)
+    return QuranDetailView(presenter: presenter)
   }
   
 }

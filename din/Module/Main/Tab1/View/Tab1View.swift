@@ -80,14 +80,16 @@ extension Tab1View {
         }
       }
       ForEach(presenter.surahs) { surah in
-        Tab1SurahListView(surah: surah)
-          .contextMenu {
-            Button(action: {
-              print("downloaded")
-            }) {
-              Label("Download", systemImage: "icloud.and.arrow.down")
+        presenter.haditsDetailLinkBuilder(surah) {
+          Tab1SurahListView(surah: surah)
+            .contextMenu {
+              Button(action: {
+                print("downloaded")
+              }) {
+                Label("Download", systemImage: "icloud.and.arrow.down")
+              }
             }
-          }
+        }
       }
     }
     .listStyle(PlainListStyle())

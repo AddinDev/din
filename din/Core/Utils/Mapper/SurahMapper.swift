@@ -15,4 +15,15 @@ class SurahMapper {
     }
   }
   
+  static func ayahsResponseToModels(_ ayahs: [String: AyahResponses]) -> AyahModels {
+    var ayahContainer: AyahModels = []
+    if let id = ayahs["id"], let ar = ayahs["ar"] {
+      for i in 0..<id.count {
+        let ayah = AyahModel(id: id[i].numberInSurah, text: id[i].text, arab: ar[i].text)
+        ayahContainer.append(ayah)
+      }
+    }
+    return ayahContainer
+  }
+  
 }

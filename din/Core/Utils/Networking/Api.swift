@@ -10,7 +10,11 @@ import Foundation
 struct Api {
   
   static let quranApi = "https://api.quran.com/api/v4/chapters"
-//  static let randomAyahApi =
+  
+  static func surahApi(id: Int) -> String {
+    return "http://api.alquran.cloud/v1/surah/\(id)/editions/quran-uthmani,id.indonesian"
+  }
+
   static let newsApi = "https://newsapi.org/v2/everything?q=islam&sortBy=popularity&apiKey=f4fc7afbfa8d42538ff983705b707eae"
   
   static let haditsBookApi = "https://api.hadith.sutanlab.id/books"

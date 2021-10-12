@@ -33,4 +33,8 @@ final class Injection {
     return HaditsDetailInteractor(repository: provideRepository())
   }
   
+  func provideQuranDetail() -> QuranDetailUseCase {
+    return QuranDetailInteractor(repository: provideRepository())
+  }
+  
 }

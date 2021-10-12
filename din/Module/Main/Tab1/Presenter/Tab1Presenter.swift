@@ -74,7 +74,11 @@ class Tab1Presenter: ObservableObject {
   }
   
   func haditsDetailLinkBuilder<Content: View>(_ bookName: HaditsNameModel, _ first: Int, _ end: Int, @ViewBuilder content: () -> Content ) -> some View {
-    NavigationLink(destination: router.makeDetailView(bookName, first, end)) { content() }
+    NavigationLink(destination: router.makeHaditsDetailView(bookName, first, end)) { content() }
+  }
+  
+  func haditsDetailLinkBuilder<Content: View>(_ surah: SurahModel, @ViewBuilder content: () -> Content ) -> some View {
+    NavigationLink(destination: router.makeQuranDetailView(surah)) { content() }
   }
 
 }

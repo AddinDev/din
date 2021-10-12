@@ -14,6 +14,7 @@ protocol RepositoryProtocol {
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanModels, Error>
   func fetchHaditsBook() -> AnyPublisher<HaditsNameModels, Error>
   func fetchHadits(_ name: String, _ first: Int, _ end: Int) -> AnyPublisher<HaditsModels, Error>
+  func fetchAyah(id: Int) -> AnyPublisher<AyahModels, Error>
 }
 
 final class Repository {
@@ -63,6 +64,12 @@ extension Repository: RepositoryProtocol {
   func fetchHadits(_ name: String, _ first: Int, _ end: Int) -> AnyPublisher<HaditsModels, Error> {
     self.remote.fetchHadits(name, first, end)
       .map { HaditsMapper.responsesToModels($0) }
+      .eraseToAnyPublisher()
+  }
+  
+  func fetchAyah(id: Int) -> AnyPublisher<AyahModels, Error> {
+    self.remote.fetchAyah(id: id)
+      .map { SurahMapper.ayahsResponseToModels($0) }
       .eraseToAnyPublisher()
   }
 

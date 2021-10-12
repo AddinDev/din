@@ -11,6 +11,7 @@ import Combine
 protocol Tab1UseCase {
   func fetchSurahs() -> AnyPublisher<SurahModels, Error>
   func fetchHaditsBook() -> AnyPublisher<HaditsNameModels, Error>
+  func fetchAyah(id: Int) -> AnyPublisher<AyahModels, Error>
 }
 
 class Tab1Interactor {
@@ -31,6 +32,10 @@ extension Tab1Interactor: Tab1UseCase {
   
   func fetchHaditsBook() -> AnyPublisher<HaditsNameModels, Error> {
     self.repository.fetchHaditsBook()
+  }
+  
+  func fetchAyah(id: Int) -> AnyPublisher<AyahModels, Error> {
+    self.repository.fetchAyah(id: id)
   }
   
 }

@@ -15,6 +15,7 @@ protocol RemoteDataSourceProtocol {
   func fetchAdzan(lat: Float, long: Float) -> AnyPublisher<AdzanResponses, Error>
   func fetchHaditsName() -> AnyPublisher<HaditsNameResponses, Error>
   func fetchHadits(_ name: String, _ first: Int, _ end: Int) -> AnyPublisher<HaditsResponses, Error>
+  func fetchAyah(id: Int) -> AnyPublisher<[String: AyahResponses], Error>
 }
 
 final class RemoteDataSource {
@@ -111,6 +112,26 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
             case .failure(let error):
               completion(.failure(error))
               print("TASKERROR: hadits: \(error.localizedDescription)")
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchAyah(id: Int) -> AnyPublisher<[String: AyahResponses], Error> {
+    return Future<[String: AyahResponses], Error> { completion in
+      guard let url = URL(string: Api.surahApi(id: id)) else { return }
+      AF.request(url)
+        .validate()
+        .responseDecodable(of: AyahDetailResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              var ayahs: [String: AyahResponses] = [:]
+              ayahs["ar"] = value.data[0].ayahs
+              ayahs["id"] = value.data[1].ayahs
+              completion(.success(ayahs))
+            case .failure(let error):
+              completion(.failure(error))
           }
         }
     }

@@ -54,3 +54,29 @@ struct TranslatedName: Codable {
         case name
     }
 }
+
+// MARK: - AyahResponse
+struct AyahDetailResponse: Codable {
+    let code: Int
+    let status: String
+    let data: [AyahEdition]
+}
+
+// MARK: - Datum
+struct AyahEdition: Codable {
+    let number: Int
+    let name, englishName, englishNameTranslation, revelationType: String
+    let numberOfAyahs: Int
+    let ayahs: AyahResponses
+}
+
+typealias AyahResponses = [AyahResponse]
+
+// MARK: - Ayah
+struct AyahResponse: Codable {
+    let number: Int
+    let text: String
+    let numberInSurah, juz, manzil, page: Int
+    let ruku, hizbQuarter: Int
+    let sajda: Bool
+}

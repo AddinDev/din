@@ -34,6 +34,7 @@ extension HaditsDetailView {
     List(presenter.hadits) { hadits in
         Text(hadits.text)
     }
+    .listStyle(PlainListStyle())
   }
   
 }

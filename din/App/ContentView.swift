@@ -40,9 +40,9 @@ struct ContentView: View {
             Image(systemName: "helm")
           }
           .tag(2)
-        Text("Audio Book Video Terkait Keagamaan")
+        Tab3View()
           .tabItem {
-            Text("4")
+            Text("3")
           }
           .tag(3)
         SettingsView()

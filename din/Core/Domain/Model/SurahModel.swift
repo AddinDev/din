@@ -18,3 +18,11 @@ struct SurahModel: Identifiable {
   let versesCount: Int
   let pages: [Int]
 }
+
+typealias AyahModels = [AyahModel]
+
+struct AyahModel: Identifiable {
+  let id: Int
+  let text: String
+  let arab: String
+}

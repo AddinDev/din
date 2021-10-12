@@ -43,21 +43,21 @@ extension SettingsView {
       switch adzanManager.authorizationStatus {
         case .authorized:
           HStack {
-            Text("Location:")
+            Text("Location")
             Spacer()
             Text("Authorized")
               .foregroundColor(.green)
           }
         case .authorizedWhenInUse:
           HStack {
-            Text("Location:")
+            Text("Location")
             Spacer()
             Text("Authorized")
               .foregroundColor(.green)
           }
         case .authorizedAlways:
           HStack {
-            Text("Location:")
+            Text("Location")
             Spacer()
             Text("Authorized")
               .foregroundColor(.green)
@@ -67,7 +67,7 @@ extension SettingsView {
             adzanManager.requestPermission()
           }) {
             HStack {
-              Text("Location:")
+              Text("Location")
                 .foregroundColor(.primary)
               Spacer()
               Text("Not Authorized")
@@ -79,7 +79,7 @@ extension SettingsView {
             adzanManager.requestPermission()
           }) {
             HStack {
-              Text("Location:")
+              Text("Location")
                 .foregroundColor(.primary)
               Spacer()
               Text("Not Authorized")
@@ -91,7 +91,7 @@ extension SettingsView {
             adzanManager.requestPermission()
           }) {
             HStack {
-              Text("Location:")
+              Text("Location")
                 .foregroundColor(.primary)
               Spacer()
               Text("Not Authorized")
@@ -103,7 +103,7 @@ extension SettingsView {
             adzanManager.requestPermission()
           }) {
             HStack {
-              Text("Location:")
+              Text("Location")
                 .foregroundColor(.primary)
               Spacer()
               Text("Not Authorized")
