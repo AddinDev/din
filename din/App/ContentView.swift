@@ -42,7 +42,7 @@ struct ContentView: View {
           .tag(2)
         Tab3View()
           .tabItem {
-            Text("3")
+            Image(systemName: "headphones")
           }
           .tag(3)
         SettingsView()

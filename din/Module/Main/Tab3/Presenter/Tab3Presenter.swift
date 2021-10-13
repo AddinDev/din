@@ -6,24 +6,53 @@
 //
 
 import Foundation
+import AVFoundation
 import Combine
 
 class Tab3Presenter: ObservableObject {
   
 //  private let router = Tab3Router()
   
-  private let useCase: Tab3UseCase
+//  private let useCase: Tab3UseCase
   
   private var cancellables: Set<AnyCancellable> = []
   
   @Published var isLoading = false
   @Published var isError = false
   @Published var errorMessage = ""
+  
+  @Published var player = AVPlayer()
+  
+  @Published var isPlaying = false
     
 //  @Published var haditsName: HaditsNameModels = []
   
-  init(useCase: Tab3UseCase) {
-    self.useCase = useCase
+  init() {
+//    self.useCase = useCase
+//    self.play(URL(string: "https://firebasestorage.googleapis.com/v0/b/alpa-5e940.appspot.com/o/ALLAH%20AKAN%20GANTI.mp3?alt=media&token=2dcd5a6b-1da6-4112-93ef-0bdab00b0b67"))
+  }
+  
+  func play(_ url: URL?) {
+    if let url = url {
+      do {
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+      } catch {
+        print("TASKERROR AUDIO: \(error.localizedDescription)")
+      }
+      print("TASK AUDIO url: \(url)")
+      player = AVPlayer(playerItem: AVPlayerItem(url: url))
+      player.play()
+      isPlaying = true
+    }
+  }
+  
+  func togglePlayer() {
+    if isPlaying {
+      player.pause()
+    } else {
+      player.play()
+    }
+    isPlaying.toggle()
   }
   
 //  func fetchSurahs() {
@@ -52,4 +81,3 @@ class Tab3Presenter: ObservableObject {
 //  }
 
 }
-

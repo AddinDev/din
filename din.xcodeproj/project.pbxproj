@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B800294B271569B800EE599B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800294A271569B800EE599B /* AudioPlayer.swift */; };
+		B800294D27156A6300EE599B /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B800294C27156A6300EE599B /* AudioModel.swift */; };
 		B803DA492712775200303ABC /* HaditsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA482712775200303ABC /* HaditsDetailView.swift */; };
 		B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */; };
 		B803DA4D2712790400303ABC /* HaditsDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */; };
@@ -87,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B800294A271569B800EE599B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		B800294C27156A6300EE599B /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
 		B803DA482712775200303ABC /* HaditsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsDetailView.swift; sourceTree = "<group>"; };
 		B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HaditsDetailPresenter.swift; path = din/Module/Main/Detail/Hadits/View/HaditsDetailPresenter.swift; sourceTree = SOURCE_ROOT; };
 		B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsDetailInteractor.swift; sourceTree = "<group>"; };
@@ -178,6 +182,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8002949271569A900EE599B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				B800294A271569B800EE599B /* AudioPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		B803DA432712772500303ABC /* Hadits */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +398,7 @@
 		B89F0723270EAC6B004B7557 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B8002949271569A900EE599B /* Audio */,
 				B89F0724270EAC73004B7557 /* Adzan */,
 			);
 			path = Features;
@@ -552,6 +565,7 @@
 				B8328125270ED88500E18875 /* SurahModel.swift */,
 				B84B0DC1270FEFA100A93698 /* NewsModel.swift */,
 				B82004F2271138B300541C45 /* AdzanModel.swift */,
+				B800294C27156A6300EE599B /* AudioModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -925,6 +939,7 @@
 				B83A54F8271532AF002AA6BD /* Tab3Presenter.swift in Sources */,
 				B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */,
 				B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */,
+				B800294B271569B800EE599B /* AudioPlayer.swift in Sources */,
 				B83A54FC27153348002AA6BD /* Tab3Interactor.swift in Sources */,
 				B89490802710213500705139 /* HomeNewsListView.swift in Sources */,
 				B89A6A8A2710773E0008E208 /* NewsDetailView.swift in Sources */,
@@ -934,6 +949,7 @@
 				B84B0DC4270FF34700A93698 /* Network.swift in Sources */,
 				B83A54F427151D26002AA6BD /* QuranDetailPresenter.swift in Sources */,
 				B84B0DC0270FEF7D00A93698 /* NewsMapper.swift in Sources */,
+				B800294D27156A6300EE599B /* AudioModel.swift in Sources */,
 				B83A54F227151D0F002AA6BD /* QuranDetailView.swift in Sources */,
 				B82004F3271138B300541C45 /* AdzanModel.swift in Sources */,
 				B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */,

@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import CoreMedia
 
 struct Tab3View: View {
   
-  @State private var showPlayer = false
+  @ObservedObject var presenter = Tab3Presenter()
   
   var body: some View {
+    audio
+  }
+
+}
+
+extension Tab3View {
+  
+  var audio: some View {
     ZStack {
       List {
         ForEach(0..<10) { _ in
@@ -34,13 +43,10 @@ struct Tab3View: View {
               .font(.caption)
               .foregroundColor(.gray)
           }
-          .onTapGesture {
-            showPlayer.toggle()
-          }
         }
       }
       .listStyle(PlainListStyle())
-      if showPlayer {
+      if presenter.isPlaying {
         VStack {
           Spacer()
           HStack {
@@ -72,7 +78,7 @@ struct Tab3View: View {
       }
     }
   }
-
+  
 }
 
 struct Tab3View_Previews: PreviewProvider {
