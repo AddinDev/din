@@ -27,6 +27,8 @@ struct Api {
     return "http://api.aladhan.com/v1/calendar?latitude=\(lat)&longitude=\(long)&method=2"
   }
   
+  static let dummy = "https://google.com"
+  
 //  static func haditsApi(type: HaditsType, id: Int) -> String {
 //    return "http://api.carihadis.com/?kitab=\(type.rawValue)&id=\(id)"
 //  }
