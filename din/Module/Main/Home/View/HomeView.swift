@@ -18,7 +18,7 @@ struct HomeView: View {
   
   var body: some View {
     ScrollView {
-      LazyVStack {
+       VStack {
         placeAndDate
         prayerTime
         hadits

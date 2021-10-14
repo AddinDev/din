@@ -14,6 +14,8 @@ struct Tab3View: View {
   
   var body: some View {
     audio
+      .navigationBarTitle("")
+      .navigationBarHidden(true)
   }
 
 }

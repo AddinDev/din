@@ -99,17 +99,22 @@ extension Tab1View {
   
   var hadits: some View {
     List {
-      ForEach(presenter.haditsName) { hadits in
-        presenter.haditsDetailLinkBuilder(hadits, 1, 5) {
-          HStack {
-            Text(hadits.name)
-            Spacer()
-            Text(String(hadits.available))
+      if presenter.haditsLoading {
+        LoadingIndicator()
+      } else if presenter.haditsError {
+        ErrorIndicator(message: presenter.haditsErrorMessage)
+      } else {
+        ForEach(presenter.haditsName) { hadits in
+          presenter.haditsDetailLinkBuilder(hadits, 1, 5) {
+            HStack {
+              Text(hadits.name)
+              Spacer()
+              Text(String(hadits.available))
+            }
           }
         }
       }
     }
     .listStyle(PlainListStyle())
   }
-  
 }

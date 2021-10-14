@@ -38,6 +38,7 @@ extension QuranDetailView {
     List(presenter.ayahs) { ayah in
       VStack(alignment: .leading) {
         Text(ayah.arab)
+          .multilineTextAlignment(.trailing)
         Text(ayah.text)
       }
     }
