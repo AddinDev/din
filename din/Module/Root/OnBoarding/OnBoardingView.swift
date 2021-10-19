@@ -39,7 +39,8 @@ struct OnBoardingView: View {
       Button(action: {
         showState = false
         systemPreference.doneBoarding()
-        adzanManager.requestPermission()
+        adzanManager.requestLocationPermission()
+//        adzanManager.requestNotificationPermission()
       }) {
         Text("Get Started")
           .foregroundColor(.white)

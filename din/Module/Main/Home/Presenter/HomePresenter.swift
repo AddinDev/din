@@ -151,4 +151,28 @@ class HomePresenter: AdzanManager {
     NavigationLink(destination: router.makeDetailView(news: news)) { content() }
   }
   
+  func setNotification(id: String, title: String, subtitle: String?, body: String) {
+//    var dateComponents = DateComponents()
+//    dateComponents.hour = hour
+//    dateComponents.minute = minute
+    
+//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+    let content = UNMutableNotificationContent()
+    
+    if let subtitle = subtitle {
+      content.subtitle = subtitle
+    }
+    
+    content.title = title
+    content.body = body
+    content.sound = UNNotificationSound.default
+    
+    let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+    
+    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    print("set notification done")
+  }
+  
 }

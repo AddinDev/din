@@ -29,9 +29,7 @@ struct HomeView: View {
     .navigationTitle("")
     .navigationBarHidden(true)
     .onAppear {
-//      DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-//        presenter.fetchAdzan()
-//      }
+//      presenter.setNotification(id: "1", title: "title", subtitle: nil, body: "hehe")
       if presenter.hadits.count == 0 {
 //        presenter.fetchHadits()
       }

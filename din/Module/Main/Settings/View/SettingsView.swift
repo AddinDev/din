@@ -62,45 +62,9 @@ extension SettingsView {
             Text("Authorized")
               .foregroundColor(.green)
           }
-        case .denied:
-          Button(action: {
-            adzanManager.requestPermission()
-          }) {
-            HStack {
-              Text("Location")
-                .foregroundColor(.primary)
-              Spacer()
-              Text("Not Authorized")
-                .foregroundColor(.red)
-            }
-          }
-        case .notDetermined:
-          Button(action: {
-            adzanManager.requestPermission()
-          }) {
-            HStack {
-              Text("Location")
-                .foregroundColor(.primary)
-              Spacer()
-              Text("Not Authorized")
-                .foregroundColor(.red)
-            }
-          }
-        case .restricted:
-          Button(action: {
-            adzanManager.requestPermission()
-          }) {
-            HStack {
-              Text("Location")
-                .foregroundColor(.primary)
-              Spacer()
-              Text("Not Authorized")
-                .foregroundColor(.red)
-            }
-          }
         default:
           Button(action: {
-            adzanManager.requestPermission()
+            adzanManager.requestLocationPermission()
           }) {
             HStack {
               Text("Location")

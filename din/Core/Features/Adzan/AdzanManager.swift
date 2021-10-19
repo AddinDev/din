@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UserNotifications
 
 class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   @Published var authorizationStatus: CLAuthorizationStatus
@@ -26,7 +27,7 @@ class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     locationManager.startUpdatingLocation()
   }
   
-  func requestPermission() {
+  func requestLocationPermission() {
     print("TASK: request permission")
     locationManager.requestWhenInUseAuthorization()
   }
@@ -54,4 +55,16 @@ class AdzanManager: NSObject, ObservableObject, CLLocationManagerDelegate {
       }
     }
   }
+  
+  // notification
+  func requestNotificationPermission() {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+      if success {
+        print("TASK: permission permitted")
+      } else if let error = error {
+        print(error.localizedDescription)
+      }
+    }
+  }
+  
 }

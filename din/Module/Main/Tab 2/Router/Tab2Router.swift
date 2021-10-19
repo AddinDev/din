@@ -9,6 +9,4 @@ import SwiftUI
 
 struct Tab2Router {
   
-  
-  
 }
