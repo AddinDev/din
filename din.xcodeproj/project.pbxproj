@@ -17,6 +17,13 @@
 		B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */; };
 		B803DA4D2712790400303ABC /* HaditsDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */; };
 		B803DA4F2712798700303ABC /* Tab1Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803DA4E2712798700303ABC /* Tab1Router.swift */; };
+		B81BDFE2271EB85700E3A57B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81BDFE1271EB85700E3A57B /* WidgetKit.framework */; };
+		B81BDFE4271EB85700E3A57B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B81BDFE3271EB85700E3A57B /* SwiftUI.framework */; };
+		B81BDFE7271EB85700E3A57B /* dinWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BDFE6271EB85700E3A57B /* dinWidget.swift */; };
+		B81BDFEA271EB85A00E3A57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B81BDFE9271EB85A00E3A57B /* Assets.xcassets */; };
+		B81BDFEC271EB85A00E3A57B /* dinWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B81BDFE8271EB85700E3A57B /* dinWidget.intentdefinition */; };
+		B81BDFED271EB85A00E3A57B /* dinWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B81BDFE8271EB85700E3A57B /* dinWidget.intentdefinition */; };
+		B81BDFF0271EB85A00E3A57B /* dinWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B81BDFDF271EB85700E3A57B /* dinWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F02711379600541C45 /* PrayTimeResponse.swift */; };
 		B82004F3271138B300541C45 /* AdzanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F2271138B300541C45 /* AdzanModel.swift */; };
 		B82004F52711396300541C45 /* AdzanMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F42711396300541C45 /* AdzanMapper.swift */; };
@@ -76,6 +83,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B81BDFEE271EB85A00E3A57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8EBFA5F270AD71E008555A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B81BDFDE271EB85700E3A57B;
+			remoteInfo = dinWidgetExtension;
+		};
 		B8EBFA78270AD722008555A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8EBFA5F270AD71E008555A7 /* Project object */;
@@ -92,6 +106,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B81BDFF1271EB85A00E3A57B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B81BDFF0271EB85A00E3A57B /* dinWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B800294A271569B800EE599B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		B800294C27156A6300EE599B /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
@@ -103,6 +131,15 @@
 		B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HaditsDetailPresenter.swift; path = din/Module/Main/Detail/Hadits/View/HaditsDetailPresenter.swift; sourceTree = SOURCE_ROOT; };
 		B803DA4C2712790400303ABC /* HaditsDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaditsDetailInteractor.swift; sourceTree = "<group>"; };
 		B803DA4E2712798700303ABC /* Tab1Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1Router.swift; sourceTree = "<group>"; };
+		B81BDFDF271EB85700E3A57B /* dinWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = dinWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81BDFE1271EB85700E3A57B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B81BDFE3271EB85700E3A57B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B81BDFE6271EB85700E3A57B /* dinWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dinWidget.swift; sourceTree = "<group>"; };
+		B81BDFE8271EB85700E3A57B /* dinWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = dinWidget.intentdefinition; sourceTree = "<group>"; };
+		B81BDFE9271EB85A00E3A57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B81BDFEB271EB85A00E3A57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B81BDFF5271EB86A00E3A57B /* din.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = din.entitlements; sourceTree = "<group>"; };
+		B81BDFF6271EB87300E3A57B /* dinWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dinWidgetExtension.entitlements; sourceTree = "<group>"; };
 		B82004F02711379600541C45 /* PrayTimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayTimeResponse.swift; sourceTree = "<group>"; };
 		B82004F2271138B300541C45 /* AdzanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanModel.swift; sourceTree = "<group>"; };
 		B82004F42711396300541C45 /* AdzanMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanMapper.swift; sourceTree = "<group>"; };
@@ -162,6 +199,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B81BDFDC271EB85700E3A57B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B81BDFE4271EB85700E3A57B /* SwiftUI.framework in Frameworks */,
+				B81BDFE2271EB85700E3A57B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8EBFA64270AD71E008555A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,6 +301,26 @@
 				B803DA4A2712777800303ABC /* HaditsDetailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B81BDFE0271EB85700E3A57B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B81BDFE1271EB85700E3A57B /* WidgetKit.framework */,
+				B81BDFE3271EB85700E3A57B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B81BDFE5271EB85700E3A57B /* dinWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B81BDFE6271EB85700E3A57B /* dinWidget.swift */,
+				B81BDFE8271EB85700E3A57B /* dinWidget.intentdefinition */,
+				B81BDFE9271EB85A00E3A57B /* Assets.xcassets */,
+				B81BDFEB271EB85A00E3A57B /* Info.plist */,
+			);
+			path = dinWidget;
 			sourceTree = "<group>";
 		};
 		B832811B270ED09E00E18875 /* Others */ = {
@@ -457,10 +523,13 @@
 		B8EBFA5E270AD71E008555A7 = {
 			isa = PBXGroup;
 			children = (
+				B81BDFF6271EB87300E3A57B /* dinWidgetExtension.entitlements */,
 				B8EBFABC270AE0E5008555A7 /* .swiftlint.yml */,
 				B8EBFA69270AD71E008555A7 /* din */,
 				B8EBFA7A270AD722008555A7 /* dinTests */,
 				B8EBFA84270AD722008555A7 /* dinUITests */,
+				B81BDFE5271EB85700E3A57B /* dinWidget */,
+				B81BDFE0271EB85700E3A57B /* Frameworks */,
 				B8EBFA68270AD71E008555A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -471,6 +540,7 @@
 				B8EBFA67270AD71E008555A7 /* din.app */,
 				B8EBFA77270AD722008555A7 /* dinTests.xctest */,
 				B8EBFA81270AD722008555A7 /* dinUITests.xctest */,
+				B81BDFDF271EB85700E3A57B /* dinWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,6 +548,7 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
+				B81BDFF5271EB86A00E3A57B /* din.entitlements */,
 				B82004F627113DE000541C45 /* Info.plist */,
 				B8EBFA97270AD785008555A7 /* App */,
 				B8EBFA9A270AD7E7008555A7 /* Core */,
@@ -785,6 +856,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B81BDFDE271EB85700E3A57B /* dinWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B81BDFF4271EB85A00E3A57B /* Build configuration list for PBXNativeTarget "dinWidgetExtension" */;
+			buildPhases = (
+				B81BDFDB271EB85700E3A57B /* Sources */,
+				B81BDFDC271EB85700E3A57B /* Frameworks */,
+				B81BDFDD271EB85700E3A57B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dinWidgetExtension;
+			productName = dinWidgetExtension;
+			productReference = B81BDFDF271EB85700E3A57B /* dinWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B8EBFA66270AD71E008555A7 /* din */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8EBFA8B270AD722008555A7 /* Build configuration list for PBXNativeTarget "din" */;
@@ -793,10 +881,12 @@
 				B8EBFA64270AD71E008555A7 /* Frameworks */,
 				B8EBFA65270AD71E008555A7 /* Resources */,
 				B8EBFABB270AE0A9008555A7 /* ShellScript */,
+				B81BDFF1271EB85A00E3A57B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B81BDFEF271EB85A00E3A57B /* PBXTargetDependency */,
 			);
 			name = din;
 			packageProductDependencies = (
@@ -855,6 +945,9 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					B81BDFDE271EB85700E3A57B = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					B8EBFA66270AD71E008555A7 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -889,11 +982,20 @@
 				B8EBFA66270AD71E008555A7 /* din */,
 				B8EBFA76270AD722008555A7 /* dinTests */,
 				B8EBFA80270AD722008555A7 /* dinUITests */,
+				B81BDFDE271EB85700E3A57B /* dinWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B81BDFDD271EB85700E3A57B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B81BDFEA271EB85A00E3A57B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8EBFA65270AD71E008555A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -942,12 +1044,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B81BDFDB271EB85700E3A57B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B81BDFEC271EB85A00E3A57B /* dinWidget.intentdefinition in Sources */,
+				B81BDFE7271EB85700E3A57B /* dinWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B8EBFA63270AD71E008555A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B8328123270ED6BC00E18875 /* Api.swift in Sources */,
 				B8328121270ED5DE00E18875 /* QuranResponse.swift in Sources */,
+				B81BDFED271EB85A00E3A57B /* dinWidget.intentdefinition in Sources */,
 				B8EBFAAA270ADAFC008555A7 /* RemoteDataSource.swift in Sources */,
 				B83AA9E42711654D003BCFCA /* HaditsMapper.swift in Sources */,
 				B83AA9E227116465003BCFCA /* HaditsResponse.swift in Sources */,
@@ -1024,6 +1136,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B81BDFEF271EB85A00E3A57B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B81BDFDE271EB85700E3A57B /* dinWidgetExtension */;
+			targetProxy = B81BDFEE271EB85A00E3A57B /* PBXContainerItemProxy */;
+		};
 		B8EBFA79270AD722008555A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B8EBFA66270AD71E008555A7 /* din */;
@@ -1037,6 +1154,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B81BDFF2271EB85A00E3A57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = dinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = dinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.din.dinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B81BDFF3271EB85A00E3A57B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = dinWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = dinWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = dinWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.din.dinWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B8EBFA89270AD722008555A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1156,8 +1331,10 @@
 		B8EBFA8C270AD722008555A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = din/din.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"din/Preview Content\"";
@@ -1190,8 +1367,10 @@
 		B8EBFA8D270AD722008555A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = din/din.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"din/Preview Content\"";
@@ -1320,6 +1499,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B81BDFF4271EB85A00E3A57B /* Build configuration list for PBXNativeTarget "dinWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B81BDFF2271EB85A00E3A57B /* Debug */,
+				B81BDFF3271EB85A00E3A57B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B8EBFA62270AD71E008555A7 /* Build configuration list for PBXProject "din" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

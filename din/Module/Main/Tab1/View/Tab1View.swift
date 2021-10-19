@@ -41,83 +41,82 @@ extension Tab1View {
               presenter.fetchHaditsBook()
             }
           }
+          .tag(1)
       }
-      .tag(1)
+      .tabViewStyle(.page(indexDisplayMode: .never))
+      .indexViewStyle(.page)
     }
-    .tabViewStyle(.page(indexDisplayMode: .never))
-    .indexViewStyle(.page)
   }
-}
-
-var toggler: some View {
-  HStack {
-    Picker("Title", selection: $selected) {
-      Text("Qur'an").tag(0)
-      Text("Hadits").tag(1)
-    }
-    .pickerStyle(SegmentedPickerStyle())
-    .padding(.horizontal, 25)
-    .padding(.vertical, 7)
-  }
-}
-
-var quran: some View {
-  //    Group {
-  //      if presenter.quranLoading {
-  //        LoadingIndicator()
-  //      } else if presenter.quranError {
-  //        ErrorIndicator(message: presenter.quranErrorMessage)
-  //      } else {
-  List {
+  
+  var toggler: some View {
     HStack {
-      Spacer()
-      Menu {
+      Picker("Title", selection: $selected) {
+        Text("Qur'an").tag(0)
+        Text("Hadits").tag(1)
+      }
+      .pickerStyle(SegmentedPickerStyle())
+      .padding(.horizontal, 25)
+      .padding(.vertical, 7)
+    }
+  }
+  
+  var quran: some View {
+    //    Group {
+    //      if presenter.quranLoading {
+    //        LoadingIndicator()
+    //      } else if presenter.quranError {
+    //        ErrorIndicator(message: presenter.quranErrorMessage)
+    //      } else {
+    List {
+      HStack {
+        Spacer()
         Menu {
-          Button("Place") { print("sorted") }
-          Button("Time") { print("sorted") }
+          Menu {
+            Button("Place") { print("sorted") }
+            Button("Time") { print("sorted") }
+          } label: {
+            Text("Sort")
+          }
         } label: {
-          Text("Sort")
+          Text("Edit")
         }
-      } label: {
-        Text("Edit")
+      }
+      ForEach(presenter.surahs) { surah in
+        presenter.haditsDetailLinkBuilder(surah) {
+          Tab1SurahListView(surah: surah)
+            .contextMenu {
+              Button(action: {
+                print("downloaded")
+              }) {
+                Label("Download", systemImage: "icloud.and.arrow.down")
+              }
+            }
+        }
       }
     }
-    ForEach(presenter.surahs) { surah in
-      presenter.haditsDetailLinkBuilder(surah) {
-        Tab1SurahListView(surah: surah)
-          .contextMenu {
-            Button(action: {
-              print("downloaded")
-            }) {
-              Label("Download", systemImage: "icloud.and.arrow.down")
+    .listStyle(PlainListStyle())
+    //      }
+    //    }
+  }
+  
+  var hadits: some View {
+    List {
+      if presenter.haditsLoading {
+        LoadingIndicator()
+      } else if presenter.haditsError {
+        ErrorIndicator(message: presenter.haditsErrorMessage)
+      } else {
+        ForEach(presenter.haditsName) { hadits in
+          presenter.haditsDetailLinkBuilder(hadits, 1, 5) {
+            HStack {
+              Text(hadits.name)
+              Spacer()
+              Text(String(hadits.available))
             }
           }
-      }
-    }
-  }
-  .listStyle(PlainListStyle())
-  //      }
-  //    }
-}
-
-var hadits: some View {
-  List {
-    if presenter.haditsLoading {
-      LoadingIndicator()
-    } else if presenter.haditsError {
-      ErrorIndicator(message: presenter.haditsErrorMessage)
-    } else {
-      ForEach(presenter.haditsName) { hadits in
-        presenter.haditsDetailLinkBuilder(hadits, 1, 5) {
-          HStack {
-            Text(hadits.name)
-            Spacer()
-            Text(String(hadits.available))
-          }
         }
       }
     }
+    .listStyle(PlainListStyle())
   }
-  .listStyle(PlainListStyle())
-}
 }
