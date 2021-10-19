@@ -12,35 +12,48 @@ struct HomeNewsListView: View {
   var news: NewsModel
   var body: some View {
     VStack(alignment: .leading) {
-      Group {
-        if let image = URL(string: news.image) {
-          WebImage(url: image)
-            .resizable()
-            .placeholder(Image("default-image").resizable())
-        }
-      }
-      .frame(height: 200)
-      .scaledToFit()
-      
-      VStack(alignment: .leading) {
-        Text(news.title)
-          .multilineTextAlignment(.leading)
-          .lineLimit(2)
-          .padding(.vertical, 5)
-        HStack {
-          Text(news.source)
-          Spacer()
-          Text(news.published)
-        }
-      }
-      .font(.subheadline)
-      .padding(.horizontal, 5)
+      Text(news.title)
+        .font(.subheadline)
+        .lineLimit(2)
+        .multilineTextAlignment(.leading)
+      Text(news.desc)
+        .font(.caption)
+        .foregroundColor(.gray)
+        .lineLimit(2)
+        .multilineTextAlignment(.leading)
     }
-    .foregroundColor(.primary)
-    .padding(10)
-    .cornerRadius(15)
-    .padding(.horizontal, 10)
   }
+  
+  //    VStack(alignment: .leading) {
+  //      Group {
+  //        if let image = URL(string: news.image) {
+  //          WebImage(url: image)
+  //            .resizable()
+  //            .placeholder(Image("default-image").resizable())
+  //        }
+  //      }
+  //      .frame(height: 200)
+  //      .scaledToFit()
+  //
+  //      VStack(alignment: .leading) {
+  //        Text(news.title)
+  //          .multilineTextAlignment(.leading)
+  //          .lineLimit(2)
+  //          .padding(.vertical, 5)
+  //        HStack {
+  //          Text(news.source)
+  //          Spacer()
+  //          Text(news.published)
+  //        }
+  //      }
+  //      .font(.subheadline)
+  //      .padding(.horizontal, 5)
+  //    }
+  //    .foregroundColor(.primary)
+  //    .padding(10)
+  //    .cornerRadius(15)
+  //    .padding(.horizontal, 10)
+  //  }
 }
 
 struct HomeNewsListView_Previews: PreviewProvider {

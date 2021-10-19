@@ -36,10 +36,15 @@ extension QuranDetailView {
   
   var content: some View {
     List(presenter.ayahs) { ayah in
-      VStack(alignment: .leading) {
-        Text(ayah.arab)
-          .multilineTextAlignment(.trailing)
-        Text(ayah.text)
+      VStack {
+        HStack {
+          Spacer()
+          Text(ayah.arab)
+        }
+        HStack {
+          Text(ayah.text)
+          Spacer()
+        }
       }
     }
     .listStyle(PlainListStyle())

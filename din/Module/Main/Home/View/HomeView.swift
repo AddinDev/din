@@ -17,15 +17,14 @@ struct HomeView: View {
   private let prayerNow: Int = 1
   
   var body: some View {
-    ScrollView {
-       VStack {
+       List {
         placeAndDate
         prayerTime
-        hadits
+//        hadits
 //        requestLocationPermissionButton
         news
       }
-    }
+       .listStyle(PlainListStyle())
     .animation(.spring())
     .navigationTitle("")
     .navigationBarHidden(true)
@@ -63,37 +62,45 @@ extension HomeView {
         ProgressView()
       }
     }
-    .padding(.horizontal)
+//    .padding(.horizontal)
     .padding(.vertical, 7)
   }
   
   var prayerTime: some View {
-    HStack {
-      VStack(alignment: .leading, spacing: 0) {
-        Text(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow])
-          .font(.system(size: 50))
-          .fontWeight(.medium)
-        Text(prayerNames[prayerNow])
-          .font(.title2)
-          .fontWeight(.semibold)
-          .foregroundColor(.gray)
-      }
-      HStack {
-        VStack(alignment: .trailing) {
-          ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
-            Text(time)
-              .fontWeight(.medium)
-          }
-        }
-        VStack(alignment: .leading) {
-          ForEach(prayerNames.filter { $0 != prayerNames[prayerNow] }, id: \.self) { name in
-            Text(name)
-              .fontWeight(.semibold)
-              .foregroundColor(.gray)
-          }
-        }
-      }
-      .padding(.horizontal)
+//    HStack {
+//      VStack(alignment: .leading, spacing: 0) {
+//        Text(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow])
+//          .font(.system(size: 50))
+//          .fontWeight(.medium)
+//        Text(prayerNames[prayerNow])
+//          .font(.title2)
+//          .fontWeight(.semibold)
+//          .foregroundColor(.gray)
+//      }
+//      HStack {
+//        VStack(alignment: .trailing) {
+//          ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
+//            Text(time)
+//              .fontWeight(.medium)
+//          }
+//        }
+//        VStack(alignment: .leading) {
+//          ForEach(prayerNames.filter { $0 != prayerNames[prayerNow] }, id: \.self) { name in
+//            Text(name)
+//              .fontWeight(.semibold)
+//              .foregroundColor(.gray)
+//          }
+//        }
+//      }
+//      .padding(.horizontal)
+//    }
+    DisclosureGroup("\(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) \(prayerNames[prayerNow])") {
+      
+                ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
+                  Text(time)
+//                    .fontWeight(.medium)
+                }
+
     }
   }
   

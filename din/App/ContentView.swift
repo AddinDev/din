@@ -31,7 +31,7 @@ struct ContentView: View {
             Image(systemName: "circlebadge.2.fill")
           }
           .tag(1)
-        Text("Dzikir Doa Harian")
+        Tab2View()
           .tabItem {
             Image(systemName: "helm")
           }
@@ -47,7 +47,7 @@ struct ContentView: View {
           }
           .tag(4)
       }
-  }
+    }
     .onAppear {
       if systemPreference.didBoarding == false {
         isShowBoardingScreen = true
