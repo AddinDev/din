@@ -30,4 +30,3 @@ struct Fields: Codable {
 struct StringValue: Codable {
   let stringValue: String
 }
-

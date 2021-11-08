@@ -74,7 +74,7 @@ class AudioPlayer: ObservableObject {
     let commandCenter = MPRemoteCommandCenter.shared()
     
     // Add handler for Play Command
-    commandCenter.playCommand.addTarget { [unowned self] event in
+    commandCenter.playCommand.addTarget { [unowned self] _ in
       print("Play command - is playing: \(self.player.isPlaying)")
       if !self.player.isPlaying {
         self.play()
@@ -84,7 +84,7 @@ class AudioPlayer: ObservableObject {
     }
     
     // Add handler for Pause Command
-    commandCenter.pauseCommand.addTarget { [unowned self] event in
+    commandCenter.pauseCommand.addTarget { [unowned self] _ in
       print("Pause command - is playing: \(self.player.isPlaying)")
       if self.player.isPlaying {
         self.pause()
@@ -95,12 +95,11 @@ class AudioPlayer: ObservableObject {
   }
   
   func setupNowPlaying() {
-    // Define Now Playing Info
-    var nowPlayingInfo = [String : Any]()
-    nowPlayingInfo[MPMediaItemPropertyTitle] = "Addin's Podcast"
+    var nowPlayingInfo = [String: Any]()
+    nowPlayingInfo[MPMediaItemPropertyTitle] = currentAudio.title
     
     if let image = UIImage(named: "deen") {
-      nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+      nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in
         return image
       }
     }
@@ -139,7 +138,7 @@ class AudioPlayer: ObservableObject {
   @objc func handleRouteChange(notification: Notification) {
     guard let userInfo = notification.userInfo,
       let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
-      let reason = AVAudioSession.RouteChangeReason(rawValue:reasonValue) else {
+      let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
         return
     }
     switch reason {
@@ -177,8 +176,7 @@ class AudioPlayer: ObservableObject {
     if type == .began {
       print("Interruption began")
       // Interruption began, take appropriate actions
-    }
-    else if type == .ended {
+    } else if type == .ended {
       if let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt {
         let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
         if options.contains(.shouldResume) {

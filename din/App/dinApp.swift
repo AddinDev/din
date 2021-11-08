@@ -22,7 +22,6 @@ struct din: App {
     let tab3Presenter = Tab3Presenter(useCase: tab3UseCase)
     
     let audioSession = AVAudioSession.sharedInstance()
-   
     
     WindowGroup {
       ContentView()
