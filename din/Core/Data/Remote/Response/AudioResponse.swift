@@ -9,9 +9,25 @@ import Foundation
 
 typealias AudioResponses = [AudioResponse]
 
-struct AudioResponse {
-  let title: String
-  let image: String?
-  let description: String
-  let file: String
+// MARK: - AudioResponse
+struct AudioResponseContainer: Codable {
+  let documents: AudioResponses
 }
+
+// MARK: - Document
+struct AudioResponse: Codable {
+  let name: String
+  let fields: Fields
+  let createTime: String
+}
+
+// MARK: - Fields
+struct Fields: Codable {
+  let author, audio, title, desc: StringValue
+}
+
+// MARK: - Audio
+struct StringValue: Codable {
+  let stringValue: String
+}
+

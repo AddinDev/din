@@ -13,7 +13,8 @@ struct ContentView: View {
   
   @EnvironmentObject var homePresenter: HomePresenter
   @EnvironmentObject var tab1Presenter: Tab1Presenter
-  
+  @EnvironmentObject var tab3Presenter: Tab3Presenter
+
   @State var isShowBoardingScreen = false
   
   @State private var viewSelected = 0
@@ -36,7 +37,7 @@ struct ContentView: View {
             Image(systemName: "helm")
           }
           .tag(2)
-        Tab3View()
+        Tab3View(presenter: tab3Presenter)
           .tabItem {
             Image(systemName: "headphones")
           }

@@ -9,10 +9,15 @@ import Foundation
 
 typealias AudioModels = [AudioModel]
 
-struct AudioModel {
+struct AudioModel: Identifiable {
   let id = UUID().uuidString
-  let image: String?
   let title: String
+  let author: String
+  let date: String
   let description: String
   let file: String
+  
+  static func empty() -> AudioModel {
+    AudioModel(title: "", author: "", date: "", description: "", file: "")
+  }
 }

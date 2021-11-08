@@ -51,6 +51,8 @@
 		B84B0DC2270FEFA100A93698 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC1270FEFA100A93698 /* NewsModel.swift */; };
 		B84B0DC4270FF34700A93698 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC3270FF34700A93698 /* Network.swift */; };
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
+		B867D5BB27395127008258ED /* AudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867D5BA27395127008258ED /* AudioMapper.swift */; };
+		B87489142738CD1A00784E35 /* deen.png in Resources */ = {isa = PBXBuildFile; fileRef = B87489132738CD1A00784E35 /* deen.png */; };
 		B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876DD54270DE12800574D81 /* SystemPreference.swift */; };
 		B88F22C6270D84BD008ED53A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C5270D84BD008ED53A /* Realm */; };
 		B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C7270D84BD008ED53A /* RealmSwift */; };
@@ -168,6 +170,8 @@
 		B84B0DC1270FEFA100A93698 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B84B0DC3270FF34700A93698 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B867D5BA27395127008258ED /* AudioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMapper.swift; sourceTree = "<group>"; };
+		B87489132738CD1A00784E35 /* deen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deen.png; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
 		B894907F2710213500705139 /* HomeNewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsListView.swift; sourceTree = "<group>"; };
 		B89A6A7E271075840008E208 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 				B84B0DBF270FEF7D00A93698 /* NewsMapper.swift */,
 				B82004F42711396300541C45 /* AdzanMapper.swift */,
 				B83AA9E32711654D003BCFCA /* HaditsMapper.swift */,
+				B867D5BA27395127008258ED /* AudioMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
+				B87489132738CD1A00784E35 /* deen.png */,
 				B81BDFF5271EB86A00E3A57B /* din.entitlements */,
 				B82004F627113DE000541C45 /* Info.plist */,
 				B8EBFA97270AD785008555A7 /* App */,
@@ -1004,6 +1010,7 @@
 				B8EBFA72270AD721008555A7 /* Preview Assets.xcassets in Resources */,
 				B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */,
 				B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */,
+				B87489142738CD1A00784E35 /* deen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1119,7 @@
 				B83A54F227151D0F002AA6BD /* QuranDetailView.swift in Sources */,
 				B8007BB12717D444003AA345 /* Tab2Interacor.swift in Sources */,
 				B82004F3271138B300541C45 /* AdzanModel.swift in Sources */,
+				B867D5BB27395127008258ED /* AudioMapper.swift in Sources */,
 				B82004F12711379600541C45 /* PrayTimeResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

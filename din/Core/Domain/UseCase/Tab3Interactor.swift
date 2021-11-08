@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 protocol Tab3UseCase {
+  func fetchAudio() -> AnyPublisher<AudioModels, Error>
 }
 
 class Tab3Interactor {
@@ -22,5 +23,9 @@ class Tab3Interactor {
 }
 
 extension Tab3Interactor: Tab3UseCase {
+  
+  func fetchAudio() -> AnyPublisher<AudioModels, Error> {
+    self.repository.fetchAudio()
+  }
   
 }

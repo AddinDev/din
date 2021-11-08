@@ -27,7 +27,7 @@ struct Api {
     return "http://api.aladhan.com/v1/calendar?latitude=\(lat)&longitude=\(long)&method=2"
   }
   
-  static let audioApi = ""
+  static let audioApi = "https://firestore.googleapis.com/v1/projects/din-app-23237/databases/(default)/documents/audio"
   
   static let doaApi = ""
   
