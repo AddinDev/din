@@ -23,7 +23,7 @@ struct AudioResponse: Codable {
 
 // MARK: - Fields
 struct Fields: Codable {
-  let author, audio, title, desc: StringValue
+  let author, audio, title, desc, cover: StringValue
 }
 
 // MARK: - Audio

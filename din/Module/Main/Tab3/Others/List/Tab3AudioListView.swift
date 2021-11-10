@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct Tab3AudioListView: View {
   var audio: AudioModel
   var body: some View {
     HStack {
-      Image("default-image")
+      WebImage(url: audio.coverURL)
         .resizable()
+        .placeholder(
+          Image("default-image")
+            .resizable())
         .scaledToFill()
         .frame(width: 60, height: 60)
         .clipped()

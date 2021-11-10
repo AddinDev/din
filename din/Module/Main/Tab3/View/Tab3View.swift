@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CoreMedia
+import SDWebImageSwiftUI
 
 struct Tab3View: View {
   
@@ -64,8 +64,11 @@ extension Tab3View {
   
   var playIndicator: some View {
     HStack {
-      Image("default-image")
+      WebImage(url: presenter.currentAudio.coverURL)
         .resizable()
+        .placeholder(
+          Image("default-image")
+            .resizable())
         .scaledToFill()
         .frame(width: 60, height: 60)
         .clipped()

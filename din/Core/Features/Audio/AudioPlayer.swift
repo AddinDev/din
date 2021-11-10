@@ -44,7 +44,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     guard let fileURL = URL(string: audio.file) else { return }
     do {
       let soundData = try Data(contentsOf: fileURL)
-      //      let url = Bundle.main.url(forResource: "song", withExtension: "mp3")
       player = try AVAudioPlayer(data: soundData)
       player.prepareToPlay()
       play()
@@ -108,13 +107,22 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
   func updateNowPlaying(isPause: Bool) {
     // Define Now Playing Info
     var nowPlayingInfo = [String: Any]()
-    nowPlayingInfo[MPMediaItemPropertyTitle] = currentAudio.title
     
-    if let image = UIImage(named: "cover") {
-      nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in
-        return image
+    nowPlayingInfo[MPMediaItemPropertyTitle] = currentAudio.title
+    nowPlayingInfo[MPMediaItemPropertyArtist] = currentAudio.author
+    
+    guard let coverURL = URL(string: currentAudio.cover) else { return }
+    do {
+      let imageData = try Data(contentsOf: coverURL)
+      if let cover = UIImage(data: imageData) {
+        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: cover.size) { _ in
+          return cover
+        }
       }
+    } catch let error as NSError {
+      print("TASKERROR: cover: \(error.localizedDescription)")
     }
+    
     nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
     nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration
         

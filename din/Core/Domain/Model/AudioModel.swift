@@ -16,8 +16,13 @@ struct AudioModel: Identifiable {
   let date: String
   let description: String
   let file: String
+  let cover: String
+  
+  var coverURL: URL? {
+    URL(string: cover)
+  }
   
   static func empty() -> AudioModel {
-    AudioModel(title: "", author: "", date: "", description: "", file: "")
+    AudioModel(title: "", author: "", date: "", description: "", file: "", cover: "")
   }
 }

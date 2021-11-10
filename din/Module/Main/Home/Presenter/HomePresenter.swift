@@ -48,9 +48,9 @@ class HomePresenter: AdzanManager {
   
   override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if adzan == nil {
-    lastSeenLocation = locations.first
-    fetchCountryAndCity(for: locations.first)
-    fetchAdzan()
+      lastSeenLocation = locations.first
+      fetchCountryAndCity(for: locations.first)
+      fetchAdzan()
     }
   }
   
@@ -107,7 +107,7 @@ class HomePresenter: AdzanManager {
     let r = time.index(time.startIndex, offsetBy: 0)..<time.index(time.endIndex, offsetBy: -9)
     let substring = String(time[r])
     let hour = substring.count == 1 ? ("0\(substring)") : substring
-
+    
     let b = time.index(time.startIndex, offsetBy: 3)..<time.index(time.endIndex, offsetBy: -6)
     let c = time[b]
     let minute = c.count == 1 ? ("0\(c)") : c
@@ -156,8 +156,8 @@ class HomePresenter: AdzanManager {
     dateComponents.minute = minute
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-//    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
+    //    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    
     let content = UNMutableNotificationContent()
     
     if let subtitle = subtitle {
@@ -170,9 +170,12 @@ class HomePresenter: AdzanManager {
     
     let imageName = "din"
     guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: "png") else { return }
-    let attachment = try! UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
-    
-    content.attachments = [attachment]
+    do {
+      let attachment = try UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
+      content.attachments = [attachment]
+    } catch let error as NSError {
+      print("TASKERROR: notification: \(error.localizedDescription)")
+    }
     
     let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
     
