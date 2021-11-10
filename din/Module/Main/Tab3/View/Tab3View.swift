@@ -44,8 +44,7 @@ extension Tab3View {
           ForEach(presenter.audios) { audio in
             Tab3AudioListView(audio: audio)
               .onTapGesture {
-                presenter.selectAudio(audio)
-                presenter.play(url: audio.file)
+                presenter.play(audio)
               }
           }
         }
@@ -96,7 +95,6 @@ extension Tab3View {
   
   func setup() {
     presenter.setupRemoteTransportControls()
-    presenter.setupNowPlaying()
     presenter.setupNotifications()
   }
   

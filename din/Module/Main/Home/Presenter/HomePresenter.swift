@@ -98,7 +98,6 @@ class HomePresenter: AdzanManager {
           SubAdzanModel(name: "Maghrib", time: self.splitMinuteAndHour(todayAdzan.magrib)),
           SubAdzanModel(name: "Isya", time: self.splitMinuteAndHour(todayAdzan.isya))
         ]
-        print("adzan: \(self.adzan)")
       }
       .store(in: &cancellables)
   }

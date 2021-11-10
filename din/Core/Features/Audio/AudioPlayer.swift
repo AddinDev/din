@@ -19,10 +19,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
   @Published var isPlaying = false
   @Published var isPaused = false
   
-  func selectAudio(_ audio: AudioModel) {
-    self.currentAudio = audio
-  }
-  
   func togglePlayPause() {
     if player.isPlaying {
       pause()
@@ -33,7 +29,10 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
   
   // "https://firebasestorage.googleapis.com/v0/b/alpa-5e940.appspot.com/o/ALLAH%20AKAN%20GANTI.mp3?alt=media&token=2dcd5a6b-1da6-4112-93ef-0bdab00b0b67"
   
-  func play(url: String) {
+  func play(_ audio: AudioModel) {
+    
+    currentAudio = audio
+    
     let audioSession = AVAudioSession.sharedInstance()
     
     do {
@@ -42,7 +41,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
       print("Setting category to AVAudioSessionCategoryPlayback failed: \(error)")
     }
     
-    guard let fileURL = URL(string: url) else { return }
+    guard let fileURL = URL(string: audio.file) else { return }
     do {
       let soundData = try Data(contentsOf: fileURL)
       //      let url = Bundle.main.url(forResource: "song", withExtension: "mp3")
@@ -60,7 +59,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     isPaused = false
     player.play()
     updateNowPlaying(isPause: false)
-    print("Play - current time: \(player.currentTime) - is playing: \(player.isPlaying)")
+    print("Play - current: \(currentAudio.title)")
   }
   
   func pause() {
@@ -106,7 +105,8 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
   }
   
-  func setupNowPlaying() {
+  func updateNowPlaying(isPause: Bool) {
+    // Define Now Playing Info
     var nowPlayingInfo = [String: Any]()
     nowPlayingInfo[MPMediaItemPropertyTitle] = currentAudio.title
     
@@ -117,16 +117,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
     nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration
-    nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate
-    
-    // Set the metadata
-    MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-  }
-  
-  func updateNowPlaying(isPause: Bool) {
-    // Define Now Playing Info
-    var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
-    
+        
     nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
     nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isPause ? 0 : 1
     
