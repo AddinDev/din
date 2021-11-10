@@ -46,3 +46,5 @@ struct ErrorIndicator: View {
     .padding()
   }
 }
+
+let prayerNames = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]

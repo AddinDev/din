@@ -19,4 +19,5 @@ struct AdzanModel: Identifiable {
   let magrib: String
   let terbenam: String
   let isya: String
+
 }

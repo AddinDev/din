@@ -10,29 +10,21 @@ import SwiftUI
 struct HomeView: View {
   
   @ObservedObject var presenter: HomePresenter
-  
-  // dummy data, the real data is from API
-  private let prayerNames = ["Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"]
-  private let prayerTimes = ["04 45", "11 45", "14 45", "17 45", "18 45"]
-  private let prayerNow: Int = 1
-  
+    
   var body: some View {
-       List {
-        placeAndDate
-        prayerTime
-//        hadits
-//        requestLocationPermissionButton
-        news
-      }
-       .listStyle(PlainListStyle())
+    List {
+      placeAndDate
+      prayerTime
+      //        hadits
+      //        requestLocationPermissionButton
+      news
+    }
+    .listStyle(PlainListStyle())
     .animation(.spring())
     .navigationTitle("")
     .navigationBarHidden(true)
     .onAppear {
-//      presenter.setNotification(id: "1", title: "title", subtitle: nil, body: "hehe")
-      if presenter.hadits.count == 0 {
-//        presenter.fetchHadits()
-      }
+      //      presenter.setNotification(id: "1", title: "title", subtitle: nil, body: "hehe")
       if presenter.news.count == 0 {
         presenter.fetchNews()
       }
@@ -60,73 +52,15 @@ extension HomeView {
         ProgressView()
       }
     }
-//    .padding(.horizontal)
     .padding(.vertical, 7)
   }
   
   var prayerTime: some View {
-//    HStack {
-//      VStack(alignment: .leading, spacing: 0) {
-//        Text(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow])
-//          .font(.system(size: 50))
-//          .fontWeight(.medium)
-//        Text(prayerNames[prayerNow])
-//          .font(.title2)
-//          .fontWeight(.semibold)
-//          .foregroundColor(.gray)
-//      }
-//      HStack {
-//        VStack(alignment: .trailing) {
-//          ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
-//            Text(time)
-//              .fontWeight(.medium)
-//          }
-//        }
-//        VStack(alignment: .leading) {
-//          ForEach(prayerNames.filter { $0 != prayerNames[prayerNow] }, id: \.self) { name in
-//            Text(name)
-//              .fontWeight(.semibold)
-//              .foregroundColor(.gray)
-//          }
-//        }
-//      }
-//      .padding(.horizontal)
-//    }
-    DisclosureGroup("\(presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) \(prayerNames[prayerNow])") {
-      
-                ForEach(presenter.adzan.filter { $0 != (presenter.adzan.count == 0 ? "" : presenter.adzan[prayerNow]) }, id: \.self) { time in
-                  Text(time)
-//                    .fontWeight(.medium)
-                }
-
-    }
-  }
-  
-  var hadits: some View {
-    VStack {
-      HStack {
-        Spacer()
-        Button(action: {
-          print("open new screen")
-        }) {
-          Text("More")
-          Image(systemName: "arrow.right") // chevron
-        }
-      }
-      .padding(.trailing)
-      ScrollView(.horizontal, showsIndicators: false) {
-        ScrollViewReader { value in
-        HStack {
-          ForEach(presenter.hadits) { hadits in
-            HomeHaditsListView(hadits: hadits)
-              .id(hadits.id)
-          }
-        }
-        .onAppear { withAnimation(.linear) { value.scrollTo(2, anchor: .center) } }
-      }
+    DisclosureGroup((presenter.adzan?[presenter.currentPrayerTime()].time ?? "") + " " + (presenter.adzan?[presenter.currentPrayerTime()].name ?? "")) {
+      ForEach(presenter.adzan?.filter { $0.name != presenter.adzan?[presenter.currentPrayerTime()].name } ?? []) { prayer in
+        Text("\(prayer.time) \(prayer.name)")
       }
     }
-    .padding(.vertical)
   }
   
   var news: some View {

@@ -21,10 +21,6 @@ class HomePresenter: AdzanManager {
   @Published var isError = false
   @Published var errorMessage = ""
   
-  @Published var haditsLoading = false
-  @Published var haditsError = false
-  @Published var haditsErrorMessage = ""
-  
   @Published var newsLoading = false
   @Published var newsError = false
   @Published var newsErrorMessage = ""
@@ -33,20 +29,25 @@ class HomePresenter: AdzanManager {
   @Published var adzanError = false
   @Published var adzanErrorMessage = ""
   
-  @Published var adzan: [String] = []
+  @Published var adzan: [SubAdzanModel]?
   
   @Published var surahs: SurahModels = []
   
   @Published var news: NewsModels = []
   
-  @Published var hadits: HaditsModels = []
+  func filteredPrayers() -> [SubAdzanModel] {
+    if let adzan = adzan {
+      return adzan.filter { $0.name != adzan[currentPrayerTime()].name}
+    }
+    return []
+  }
   
   init(useCase: HomeUseCase) {
     self.useCase = useCase
   }
   
   override func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if adzan.count == 0 {
+    if adzan == nil {
     lastSeenLocation = locations.first
     fetchCountryAndCity(for: locations.first)
     fetchAdzan()
@@ -73,27 +74,6 @@ class HomePresenter: AdzanManager {
       .store(in: &cancellables)
   }
   
-//  func fetchHadits() {
-//    self.haditsLoading = true
-//    self.haditsError = false
-//    self.useCase.fetchHadits()
-//      .receive(on: RunLoop.main)
-//      .sink { completion in
-//        switch completion {
-//          case .finished:
-//            self.haditsLoading = false
-//          case .failure(let error):
-//            self.haditsErrorMessage = error.localizedDescription
-//            self.haditsError = true
-//            self.haditsLoading = false
-//        }
-//      } receiveValue: { hadits in
-//        self.hadits = hadits
-// //        print("hadits: \(self.hadits)")
-//      }
-//      .store(in: &cancellables)
-//  }
-  
   func fetchAdzan() {
     self.adzanLoading = true
     self.adzanError = false
@@ -111,15 +91,13 @@ class HomePresenter: AdzanManager {
         }
       } receiveValue: { adzan in
         let todayAdzan = adzan[self.dayIndex()]
-        let newAdzan = AdzanModel(imsak: self.splitMinuteAndHour(todayAdzan.imsak),
-                                  subuh: self.splitMinuteAndHour(todayAdzan.subuh),
-                                  terbit: self.splitMinuteAndHour(todayAdzan.terbit),
-                                  dzuhur: self.splitMinuteAndHour(todayAdzan.dzuhur),
-                                  ashar: self.splitMinuteAndHour(todayAdzan.ashar),
-                                  magrib: self.splitMinuteAndHour(todayAdzan.magrib),
-                                  terbenam: self.splitMinuteAndHour(todayAdzan.terbenam),
-                                  isya: self.splitMinuteAndHour(todayAdzan.isya))
-        self.adzan = [newAdzan.subuh, newAdzan.dzuhur, newAdzan.ashar, newAdzan.magrib, newAdzan.isya]
+        self.adzan = [
+          SubAdzanModel(name: "Subuh", time: self.splitMinuteAndHour(todayAdzan.subuh)),
+          SubAdzanModel(name: "Dzuhur", time: self.splitMinuteAndHour(todayAdzan.dzuhur)),
+          SubAdzanModel(name: "Ashar", time: self.splitMinuteAndHour(todayAdzan.ashar)),
+          SubAdzanModel(name: "Maghrib", time: self.splitMinuteAndHour(todayAdzan.magrib)),
+          SubAdzanModel(name: "Isya", time: self.splitMinuteAndHour(todayAdzan.isya))
+        ]
         print("adzan: \(self.adzan)")
       }
       .store(in: &cancellables)
@@ -145,6 +123,24 @@ class HomePresenter: AdzanManager {
     let stringDate = timeFormatter.string(from: time)
     let dayIndex = Int(stringDate) ?? 1 - 1
     return dayIndex
+  }
+  
+  func currentPrayerTime() -> Int {
+    let date = Date()
+    let calendar = Calendar.current
+    let hour = calendar.component(.hour, from: date)
+    let jam = Int(hour)
+    if jam == 7 || jam == 8 || jam == 9 || jam == 10 || jam == 11 || jam == 12 || jam == 13 {
+      return 1
+    } else if jam == 14 || jam == 15 {
+      return 2
+    } else if jam == 16 || jam == 17 || jam == 18 {
+      return 3
+    } else if  jam == 19 || jam == 20 || jam == 21 || jam == 22 || jam == 23 {
+      return 4
+    } else {
+      return 0
+    }
   }
   
   func newsDetailLinkBuilder<Content: View>(for news: NewsModel, @ViewBuilder content: () -> Content ) -> some View {
@@ -175,4 +171,10 @@ class HomePresenter: AdzanManager {
     print("set notification done")
   }
   
+}
+
+struct SubAdzanModel: Identifiable {
+  let id = UUID().uuidString
+  let name: String
+  let time: String
 }
