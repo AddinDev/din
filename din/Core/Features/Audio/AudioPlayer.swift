@@ -98,7 +98,7 @@ class AudioPlayer: ObservableObject {
     var nowPlayingInfo = [String: Any]()
     nowPlayingInfo[MPMediaItemPropertyTitle] = currentAudio.title
     
-    if let image = UIImage(named: "deen") {
+    if let image = UIImage(named: "cover") {
       nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { _ in
         return image
       }

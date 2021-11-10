@@ -52,7 +52,7 @@
 		B84B0DC4270FF34700A93698 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC3270FF34700A93698 /* Network.swift */; };
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
 		B867D5BB27395127008258ED /* AudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867D5BA27395127008258ED /* AudioMapper.swift */; };
-		B87489142738CD1A00784E35 /* deen.png in Resources */ = {isa = PBXBuildFile; fileRef = B87489132738CD1A00784E35 /* deen.png */; };
+		B86E7ADD273BA172005088E0 /* Tab3AudioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */; };
 		B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876DD54270DE12800574D81 /* SystemPreference.swift */; };
 		B88F22C6270D84BD008ED53A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C5270D84BD008ED53A /* Realm */; };
 		B88F22C8270D84BD008ED53A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B88F22C7270D84BD008ED53A /* RealmSwift */; };
@@ -171,7 +171,7 @@
 		B84B0DC3270FF34700A93698 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B867D5BA27395127008258ED /* AudioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMapper.swift; sourceTree = "<group>"; };
-		B87489132738CD1A00784E35 /* deen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deen.png; sourceTree = "<group>"; };
+		B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3AudioListView.swift; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
 		B894907F2710213500705139 /* HomeNewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsListView.swift; sourceTree = "<group>"; };
 		B89A6A7E271075840008E208 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -432,6 +432,22 @@
 			path = SystemPreference;
 			sourceTree = "<group>";
 		};
+		B86E7ADA273BA153005088E0 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B86E7ADB273BA160005088E0 /* List */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		B86E7ADB273BA160005088E0 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		B89A6A82271076CE0008E208 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +569,6 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
-				B87489132738CD1A00784E35 /* deen.png */,
 				B81BDFF5271EB86A00E3A57B /* din.entitlements */,
 				B82004F627113DE000541C45 /* Info.plist */,
 				B8EBFA97270AD785008555A7 /* App */,
@@ -832,6 +847,7 @@
 				B8F89F382712C44000972F05 /* View */,
 				B8F89F372712C43B00972F05 /* Presenter */,
 				B8F89F362712C43800972F05 /* Router */,
+				B86E7ADA273BA153005088E0 /* Others */,
 			);
 			path = Tab3;
 			sourceTree = "<group>";
@@ -1010,7 +1026,6 @@
 				B8EBFA72270AD721008555A7 /* Preview Assets.xcassets in Resources */,
 				B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */,
 				B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */,
-				B87489142738CD1A00784E35 /* deen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,6 +1112,7 @@
 				B8EBFAB4270ADB3E008555A7 /* GlobalHelper.swift in Sources */,
 				B8313DEF270D335800EBE94C /* HomePresenter.swift in Sources */,
 				B803DA4F2712798700303ABC /* Tab1Router.swift in Sources */,
+				B86E7ADD273BA172005088E0 /* Tab3AudioListView.swift in Sources */,
 				B89A6A8C271077850008E208 /* NewsDetailPresenter.swift in Sources */,
 				B8328126270ED88500E18875 /* SurahModel.swift in Sources */,
 				B8F89F3A2712C44D00972F05 /* Tab3View.swift in Sources */,

@@ -48,25 +48,7 @@ extension Tab3View {
       } else {
         List {
           ForEach(presenter.audios) { audio in
-            HStack {
-              Image("default-image")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60, height: 60)
-                .clipped()
-                .padding(.vertical, 5)
-              VStack(alignment: .leading) {
-                Text(audio.title)
-                  .font(.subheadline)
-                Text(audio.author)
-                  .font(.callout)
-                  .foregroundColor(.gray)
-              }
-              Spacer()
-              Text("1 minute")
-                .font(.caption)
-                .foregroundColor(.gray)
-            }
+            Tab3AudioListView(audio: audio)
             .onTapGesture {
               presenter.selectAudio(audio)
               presenter.play(url: audio.file)
@@ -75,9 +57,12 @@ extension Tab3View {
         }
         .listStyle(PlainListStyle())
         if presenter.isPlaying {
+          VStack {
+            Spacer()
           playIndicator
             .transition(.move(edge: .bottom))
             .animation(.spring())
+          }
         }
       }
     }
@@ -85,8 +70,6 @@ extension Tab3View {
   }
   
   var playIndicator: some View {
-    VStack {
-      Spacer()
       HStack {
         Image("default-image")
           .resizable()
@@ -114,7 +97,7 @@ extension Tab3View {
       }
       .padding(.leading)
       .background(Color.gray.opacity(0.5))
-    }
+      .padding(.bottom, 8)
   }
   
   func setup() {
