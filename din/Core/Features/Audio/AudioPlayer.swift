@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import UIKit
 import AVFoundation
 import MediaPlayer
 
-class AudioPlayer: ObservableObject {
+class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
   
   var player = AVAudioPlayer()
   
   @Published var currentAudio: AudioModel = .empty()
-
+  
   @Published var isPlaying = false
   @Published var isPaused = false
   
@@ -36,18 +37,19 @@ class AudioPlayer: ObservableObject {
     let audioSession = AVAudioSession.sharedInstance()
     
     do {
-        try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+      try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
     } catch let error as NSError {
-        print("Setting category to AVAudioSessionCategoryPlayback failed: \(error)")
+      print("Setting category to AVAudioSessionCategoryPlayback failed: \(error)")
     }
     
     guard let fileURL = URL(string: url) else { return }
     do {
       let soundData = try Data(contentsOf: fileURL)
-//      let url = Bundle.main.url(forResource: "song", withExtension: "mp3")
+      //      let url = Bundle.main.url(forResource: "song", withExtension: "mp3")
       player = try AVAudioPlayer(data: soundData)
       player.prepareToPlay()
       play()
+      print("TASK AUDIO DURATION: \(player.duration)")
     } catch let error as NSError {
       print("Failed to init audio player: \(error)")
     }
@@ -67,6 +69,16 @@ class AudioPlayer: ObservableObject {
     player.pause()
     updateNowPlaying(isPause: true)
     print("Pause - current time: \(player.currentTime) - is playing: \(player.isPlaying)")
+  }
+  
+  func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    if flag {
+      print("TASK AUDIO FINISHED: \(flag)")
+      isPlaying = false
+      updateNowPlaying(isPause: true)
+    } else {
+      print("TASKERROR AUDIO: flag: \(flag)")
+    }
   }
   
   func setupRemoteTransportControls() {
@@ -133,45 +145,45 @@ class AudioPlayer: ObservableObject {
                                    name: AVAudioSession.routeChangeNotification,
                                    object: nil)
   }
-
+  
   // MARK: Handle Notifications
   @objc func handleRouteChange(notification: Notification) {
     guard let userInfo = notification.userInfo,
-      let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
-      let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
-        return
-    }
+          let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+          let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
+            return
+          }
     switch reason {
-    case .newDeviceAvailable:
-      let session = AVAudioSession.sharedInstance()
-      for output in session.currentRoute.outputs where output.portType == AVAudioSession.Port.headphones {
-        print("headphones connected")
-        DispatchQueue.main.sync {
-          self.play()
-        }
-        break
-      }
-    case .oldDeviceUnavailable:
-      if let previousRoute =
-        userInfo[AVAudioSessionRouteChangePreviousRouteKey] as? AVAudioSessionRouteDescription {
-        for output in previousRoute.outputs where output.portType == AVAudioSession.Port.headphones {
-          print("headphones disconnected")
+      case .newDeviceAvailable:
+        let session = AVAudioSession.sharedInstance()
+        for output in session.currentRoute.outputs where output.portType == AVAudioSession.Port.headphones {
+          print("headphones connected")
           DispatchQueue.main.sync {
-            self.pause()
+            self.play()
           }
           break
         }
-      }
-    default: ()
+      case .oldDeviceUnavailable:
+        if let previousRoute =
+            userInfo[AVAudioSessionRouteChangePreviousRouteKey] as? AVAudioSessionRouteDescription {
+          for output in previousRoute.outputs where output.portType == AVAudioSession.Port.headphones {
+            print("headphones disconnected")
+            DispatchQueue.main.sync {
+              self.pause()
+            }
+            break
+          }
+        }
+      default: ()
     }
   }
-
+  
   @objc func handleInterruption(notification: Notification) {
     guard let userInfo = notification.userInfo,
-      let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
-      let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
-        return
-    }
+          let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+          let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+            return
+          }
     
     if type == .began {
       print("Interruption began")
@@ -190,5 +202,5 @@ class AudioPlayer: ObservableObject {
       }
     }
   }
-
+  
 }
