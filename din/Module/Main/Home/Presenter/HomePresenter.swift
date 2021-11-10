@@ -92,17 +92,17 @@ class HomePresenter: AdzanManager {
       } receiveValue: { adzan in
         let todayAdzan = adzan[self.dayIndex()]
         self.adzan = [
-          SubAdzanModel(name: "Subuh", time: self.splitMinuteAndHour(todayAdzan.subuh)),
-          SubAdzanModel(name: "Dzuhur", time: self.splitMinuteAndHour(todayAdzan.dzuhur)),
-          SubAdzanModel(name: "Ashar", time: self.splitMinuteAndHour(todayAdzan.ashar)),
-          SubAdzanModel(name: "Maghrib", time: self.splitMinuteAndHour(todayAdzan.magrib)),
-          SubAdzanModel(name: "Isya", time: self.splitMinuteAndHour(todayAdzan.isya))
+          SubAdzanModel(name: "Subuh", time: self.splitMinuteAndHourAndSetNotification(todayAdzan.subuh)),
+          SubAdzanModel(name: "Dzuhur", time: self.splitMinuteAndHourAndSetNotification(todayAdzan.dzuhur)),
+          SubAdzanModel(name: "Ashar", time: self.splitMinuteAndHourAndSetNotification(todayAdzan.ashar)),
+          SubAdzanModel(name: "Maghrib", time: self.splitMinuteAndHourAndSetNotification(todayAdzan.magrib)),
+          SubAdzanModel(name: "Isya", time: self.splitMinuteAndHourAndSetNotification(todayAdzan.isya))
         ]
       }
       .store(in: &cancellables)
   }
   
-  private func splitMinuteAndHour(_ adzan: String) -> String {
+  private func splitMinuteAndHourAndSetNotification(_ adzan: String) -> String {
     let time = adzan
     let r = time.index(time.startIndex, offsetBy: 0)..<time.index(time.endIndex, offsetBy: -9)
     let substring = String(time[r])
@@ -111,6 +111,10 @@ class HomePresenter: AdzanManager {
     let b = time.index(time.startIndex, offsetBy: 3)..<time.index(time.endIndex, offsetBy: -6)
     let c = time[b]
     let minute = c.count == 1 ? ("0\(c)") : c
+    
+    setNotification(id: adzan, title: "Reminder Adzan",
+                    subtitle: nil, body: "Waktu sudah mendekati waktu \(prayerNames[currentPrayerTime()])",
+                    hour: Int(hour) ?? 0, minute: Int(minute) ?? 0)
     
     return "\(hour) \(minute)"
   }
@@ -146,13 +150,13 @@ class HomePresenter: AdzanManager {
     NavigationLink(destination: router.makeDetailView(news: news)) { content() }
   }
   
-  func setNotification(id: String, title: String, subtitle: String?, body: String) {
-//    var dateComponents = DateComponents()
-//    dateComponents.hour = hour
-//    dateComponents.minute = minute
+  func setNotification(id: String, title: String, subtitle: String?, body: String, hour: Int, minute: Int) {
+    var dateComponents = DateComponents()
+    dateComponents.hour = hour
+    dateComponents.minute = minute
     
-//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
     let content = UNMutableNotificationContent()
     
@@ -164,10 +168,16 @@ class HomePresenter: AdzanManager {
     content.body = body
     content.sound = UNNotificationSound.default
     
+    let imageName = "din"
+    guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: "png") else { return }
+    let attachment = try! UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
+    
+    content.attachments = [attachment]
+    
     let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
     
     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    print("set notification done")
+    print("TASK: set notification done")
   }
   
 }

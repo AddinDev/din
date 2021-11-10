@@ -51,6 +51,7 @@
 		B84B0DC2270FEFA100A93698 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC1270FEFA100A93698 /* NewsModel.swift */; };
 		B84B0DC4270FF34700A93698 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B0DC3270FF34700A93698 /* Network.swift */; };
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
+		B85B6403273C0EBC00B3A46D /* din.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B6402273C0EBB00B3A46D /* din.png */; };
 		B867D5BB27395127008258ED /* AudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867D5BA27395127008258ED /* AudioMapper.swift */; };
 		B86E7ADD273BA172005088E0 /* Tab3AudioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */; };
 		B86E7AE1273BAAB4005088E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E7AE0273BAAB4005088E0 /* Extensions.swift */; };
@@ -171,6 +172,7 @@
 		B84B0DC1270FEFA100A93698 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		B84B0DC3270FF34700A93698 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B85B6402273C0EBB00B3A46D /* din.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = din.png; sourceTree = "<group>"; };
 		B867D5BA27395127008258ED /* AudioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMapper.swift; sourceTree = "<group>"; };
 		B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3AudioListView.swift; sourceTree = "<group>"; };
 		B86E7AE0273BAAB4005088E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 		B8EBFA69270AD71E008555A7 /* din */ = {
 			isa = PBXGroup;
 			children = (
+				B85B6402273C0EBB00B3A46D /* din.png */,
 				B81BDFF5271EB86A00E3A57B /* din.entitlements */,
 				B82004F627113DE000541C45 /* Info.plist */,
 				B8EBFA97270AD785008555A7 /* App */,
@@ -1026,6 +1029,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EBFABD270AE0E5008555A7 /* .swiftlint.yml in Resources */,
+				B85B6403273C0EBC00B3A46D /* din.png in Resources */,
 				B8EBFA72270AD721008555A7 /* Preview Assets.xcassets in Resources */,
 				B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */,
 				B8EBFA6F270AD721008555A7 /* Assets.xcassets in Resources */,
