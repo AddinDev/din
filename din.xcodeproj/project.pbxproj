@@ -53,6 +53,9 @@
 		B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8552DCB270BEE4E0044D49F /* HomeView.swift */; };
 		B85B6403273C0EBC00B3A46D /* din.png in Resources */ = {isa = PBXBuildFile; fileRef = B85B6402273C0EBB00B3A46D /* din.png */; };
 		B867D5BB27395127008258ED /* AudioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867D5BA27395127008258ED /* AudioMapper.swift */; };
+		B868329B273CB1220039B428 /* AdzanEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329A273CB1220039B428 /* AdzanEntry.swift */; };
+		B868329D273CB5460039B428 /* AdzanTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329C273CB5460039B428 /* AdzanTimelineProvider.swift */; };
+		B86832A0273CB9DB0039B428 /* AdzanAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329F273CB9DB0039B428 /* AdzanAPIService.swift */; };
 		B86E7ADD273BA172005088E0 /* Tab3AudioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */; };
 		B86E7AE1273BAAB4005088E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E7AE0273BAAB4005088E0 /* Extensions.swift */; };
 		B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B876DD54270DE12800574D81 /* SystemPreference.swift */; };
@@ -83,6 +86,15 @@
 		B8EBFABF270AE265008555A7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EBFABE270AE265008555A7 /* Launch Screen.storyboard */; };
 		B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAC1270AE453008555A7 /* OnBoardingView.swift */; };
 		B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBFAC3270AE7BF008555A7 /* HomeInteractor.swift */; };
+		B8F0C288273CC63200FD6172 /* AdzanTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329C273CB5460039B428 /* AdzanTimelineProvider.swift */; };
+		B8F0C289273CC63600FD6172 /* AdzanWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329E273CB9540039B428 /* AdzanWidgetView.swift */; };
+		B8F0C28A273CC63800FD6172 /* AdzanEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329A273CB1220039B428 /* AdzanEntry.swift */; };
+		B8F0C28B273CC63B00FD6172 /* AdzanAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868329F273CB9DB0039B428 /* AdzanAPIService.swift */; };
+		B8F0C28D273CC6AB00FD6172 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B8F0C28C273CC6AB00FD6172 /* Alamofire */; };
+		B8F0C28E273CC76900FD6172 /* AdzanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F0725270EAC83004B7557 /* AdzanManager.swift */; };
+		B8F0C28F273CC78300FD6172 /* PrayTimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F02711379600541C45 /* PrayTimeResponse.swift */; };
+		B8F0C290273CC78A00FD6172 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8328122270ED6BC00E18875 /* Api.swift */; };
+		B8F0C291273CC79F00FD6172 /* AdzanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82004F2271138B300541C45 /* AdzanModel.swift */; };
 		B8F89F3A2712C44D00972F05 /* Tab3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F89F392712C44D00972F05 /* Tab3View.swift */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +186,10 @@
 		B8552DCB270BEE4E0044D49F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B85B6402273C0EBB00B3A46D /* din.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = din.png; sourceTree = "<group>"; };
 		B867D5BA27395127008258ED /* AudioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMapper.swift; sourceTree = "<group>"; };
+		B868329A273CB1220039B428 /* AdzanEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanEntry.swift; sourceTree = "<group>"; };
+		B868329C273CB5460039B428 /* AdzanTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanTimelineProvider.swift; sourceTree = "<group>"; };
+		B868329E273CB9540039B428 /* AdzanWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanWidgetView.swift; sourceTree = "<group>"; };
+		B868329F273CB9DB0039B428 /* AdzanAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanAPIService.swift; sourceTree = "<group>"; };
 		B86E7ADC273BA172005088E0 /* Tab3AudioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3AudioListView.swift; sourceTree = "<group>"; };
 		B86E7AE0273BAAB4005088E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B876DD54270DE12800574D81 /* SystemPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPreference.swift; sourceTree = "<group>"; };
@@ -211,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F0C28D273CC6AB00FD6172 /* Alamofire in Frameworks */,
 				B81BDFE4271EB85700E3A57B /* SwiftUI.framework in Frameworks */,
 				B81BDFE2271EB85700E3A57B /* WidgetKit.framework in Frameworks */,
 			);
@@ -324,6 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				B81BDFE6271EB85700E3A57B /* dinWidget.swift */,
+				B868329E273CB9540039B428 /* AdzanWidgetView.swift */,
+				B868329C273CB5460039B428 /* AdzanTimelineProvider.swift */,
+				B868329A273CB1220039B428 /* AdzanEntry.swift */,
+				B868329F273CB9DB0039B428 /* AdzanAPIService.swift */,
 				B81BDFE8271EB85700E3A57B /* dinWidget.intentdefinition */,
 				B81BDFE9271EB85A00E3A57B /* Assets.xcassets */,
 				B81BDFEB271EB85A00E3A57B /* Info.plist */,
@@ -897,6 +918,9 @@
 			dependencies = (
 			);
 			name = dinWidgetExtension;
+			packageProductDependencies = (
+				B8F0C28C273CC6AB00FD6172 /* Alamofire */,
+			);
 			productName = dinWidgetExtension;
 			productReference = B81BDFDF271EB85700E3A57B /* dinWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1077,7 +1101,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F0C290273CC78A00FD6172 /* Api.swift in Sources */,
 				B81BDFEC271EB85A00E3A57B /* dinWidget.intentdefinition in Sources */,
+				B8F0C28E273CC76900FD6172 /* AdzanManager.swift in Sources */,
+				B8F0C28B273CC63B00FD6172 /* AdzanAPIService.swift in Sources */,
+				B8F0C28F273CC78300FD6172 /* PrayTimeResponse.swift in Sources */,
+				B8F0C289273CC63600FD6172 /* AdzanWidgetView.swift in Sources */,
+				B8F0C28A273CC63800FD6172 /* AdzanEntry.swift in Sources */,
+				B8F0C288273CC63200FD6172 /* AdzanTimelineProvider.swift in Sources */,
+				B8F0C291273CC79F00FD6172 /* AdzanModel.swift in Sources */,
 				B81BDFE7271EB85700E3A57B /* dinWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1100,6 +1132,7 @@
 				B8552DCC270BEE4E0044D49F /* HomeView.swift in Sources */,
 				B83A54FE2715338F002AA6BD /* AudioResponse.swift in Sources */,
 				B835C16E270F2EA6009CD9B6 /* Tab1Presenter.swift in Sources */,
+				B868329D273CB5460039B428 /* AdzanTimelineProvider.swift in Sources */,
 				B835C16C270F2E98009CD9B6 /* Tab1View.swift in Sources */,
 				B8EBFAAE270ADB1E008555A7 /* Injection.swift in Sources */,
 				B876DD55270DE12800574D81 /* SystemPreference.swift in Sources */,
@@ -1113,6 +1146,7 @@
 				B89F0726270EAC83004B7557 /* AdzanManager.swift in Sources */,
 				B8EBFAC4270AE7BF008555A7 /* HomeInteractor.swift in Sources */,
 				B83A54F627151E28002AA6BD /* QuranDetailInteractor.swift in Sources */,
+				B868329B273CB1220039B428 /* AdzanEntry.swift in Sources */,
 				B832811F270ED0F800E18875 /* HaditsModel.swift in Sources */,
 				B8EBFAC2270AE453008555A7 /* OnBoardingView.swift in Sources */,
 				B89A6A7F271075840008E208 /* HomeRouter.swift in Sources */,
@@ -1125,6 +1159,7 @@
 				B8F89F3A2712C44D00972F05 /* Tab3View.swift in Sources */,
 				B83A54F8271532AF002AA6BD /* Tab3Presenter.swift in Sources */,
 				B84B0DBE270FE86700A93698 /* IslamicNewsResponse.swift in Sources */,
+				B86832A0273CB9DB0039B428 /* AdzanAPIService.swift in Sources */,
 				B803DA4B2712777800303ABC /* HaditsDetailPresenter.swift in Sources */,
 				B800294B271569B800EE599B /* AudioPlayer.swift in Sources */,
 				B83A54FC27153348002AA6BD /* Tab3Interactor.swift in Sources */,
@@ -1622,6 +1657,11 @@
 			productName = SDWebImageSwiftUI;
 		};
 		B8EBFA95270AD77E008555A7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B8F0C28C273CC6AB00FD6172 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8EBFA94270AD77E008555A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;

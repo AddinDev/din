@@ -21,3 +21,12 @@ struct AdzanModel: Identifiable {
   let isya: String
 
 }
+
+typealias SubAdzanModels = [SubAdzanModel]
+
+struct SubAdzanModel: Identifiable {
+  let id = UUID().uuidString
+  let name: String
+  let time: String
+  
+}

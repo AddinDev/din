@@ -150,7 +150,7 @@ class HomePresenter: AdzanManager {
     NavigationLink(destination: router.makeDetailView(news: news)) { content() }
   }
   
-  func setNotification(id: String, title: String, subtitle: String?, body: String, hour: Int, minute: Int) {
+  private func setNotification(id: String, title: String, subtitle: String?, body: String, hour: Int, minute: Int) {
     var dateComponents = DateComponents()
     dateComponents.hour = hour
     dateComponents.minute = minute
@@ -183,10 +183,4 @@ class HomePresenter: AdzanManager {
     print("TASK: set notification done")
   }
   
-}
-
-struct SubAdzanModel: Identifiable {
-  let id = UUID().uuidString
-  let name: String
-  let time: String
 }
